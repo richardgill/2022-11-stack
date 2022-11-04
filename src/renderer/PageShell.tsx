@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
 import { Link } from './Link'
 import logo from './logo.svg'
@@ -5,6 +6,7 @@ import './PageShell.css'
 import type { PageContext } from './types'
 import { PageContextProvider } from './usePageContext'
 
+const queryClient = new QueryClient()
 function PageShell({
   children,
   pageContext,
@@ -14,26 +16,34 @@ function PageShell({
 }) {
   return (
     <React.StrictMode>
-      <PageContextProvider pageContext={pageContext}>
-        <Layout>
-          <Sidebar>
-            <Logo />
-            <Link className="navitem" href="/">
-              Home
-            </Link>
-            <Link className="navitem" href="/about">
-              About
-            </Link>
-            <Link className="navitem" href="/pre-rendered">
-              Pre Rendered
-            </Link>
-            <Link className="navitem" href="/star-wars-ssr/starships">
-              starships ssr
-            </Link>
-          </Sidebar>
-          <Content>{children}</Content>
-        </Layout>
-      </PageContextProvider>
+      <QueryClientProvider client={queryClient}>
+        <PageContextProvider pageContext={pageContext}>
+          <Layout>
+            <Sidebar>
+              <Logo />
+              <Link className="navitem" href="/">
+                Home
+              </Link>
+              <Link className="navitem" href="/about">
+                About
+              </Link>
+              <Link className="navitem" href="/pre-rendered">
+                Pre Rendered
+              </Link>
+              <Link className="navitem" href="/star-wars-ssr/starships">
+                starships ssr
+              </Link>
+              <Link
+                className="navitem"
+                href="/star-wars-ssr-react-query/starships"
+              >
+                starships ssr react query
+              </Link>
+            </Sidebar>
+            <Content>{children}</Content>
+          </Layout>
+        </PageContextProvider>
+      </QueryClientProvider>
     </React.StrictMode>
   )
 }

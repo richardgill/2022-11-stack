@@ -17,6 +17,9 @@ module.exports = {
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    '@typescript-eslint/return-await': 'off',
+    '@typescript-eslint/promise-function-async': 'off',
     'react/react-in-jsx-scope': 'off',
   },
 }
