@@ -27,8 +27,8 @@ function PageShell({
             <Link className="navitem" href="/pre-rendered">
               Pre Rendered
             </Link>
-            <Link className="navitem" href="/star-wars/starships">
-              starships
+            <Link className="navitem" href="/star-wars-ssr/starships">
+              starships ssr
             </Link>
           </Sidebar>
           <Content>{children}</Content>
