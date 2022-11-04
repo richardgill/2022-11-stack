@@ -11,7 +11,7 @@ const delay = async (time: number) =>
 
 export const onBeforeRender = async (pageContext: PageContext) => {
   const response = await fetch(
-    `https://swapi.dev/api/starships/${pageContext.routeParams.id}`
+    `https://swapi.dev/api/starships/${pageContext.routeParams?.id}`
   )
   const { name, passengers, url }: StarshipResponse = await response.json()
 
