@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { last } from 'lodash'
 import React from 'react'
-import { Starship, StarshipResponse } from './types'
+import {
+  Starship,
+  StarshipResponse,
+} from '~/pages/star-wars-ssr/starships/types'
 
 const delay = async (time: number) =>
   await new Promise((resolve) => setTimeout(resolve, time))
