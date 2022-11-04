@@ -15,8 +15,9 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "npx prettier --write",
-      "npx eslint --fix"
+      "pnpx prettier --write",
+      "pnpx eslint --fix",
+      "pnpx eslint ./src"
     ],
     "package.json": [
       "sort-package-json"
