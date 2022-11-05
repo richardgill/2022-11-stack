@@ -4,32 +4,31 @@ import { trpcReact } from '~/renderer/trpc'
 export const Page: React.FC = () => {
   const trpcContext = trpcReact.useContext()
   const {
-    data: users,
+    data: dogs,
     isLoading,
     isRefetching,
     refetch,
-  } = trpcReact.users.getAll.useQuery()
-  const { mutate: createUser } = trpcReact.users.create.useMutation({
+  } = trpcReact.dogs.getAll.useQuery()
+  const { mutate: createDog } = trpcReact.dogs.create.useMutation({
     onSuccess: async () => {
-      await trpcContext.users.getAll.invalidate()
+      await trpcContext.dogs.getAll.invalidate()
     },
   })
+  console.log('dogs', dogs)
   return (
     <div>
       <h1>{`Users, were mean't to buy`}</h1>
       <div>
         <button onClick={() => refetch()}>Refetch</button>
         {isLoading || (isRefetching && <div>Loading...</div>)}
-        {users?.map(({ name, id }) => (
-          <a key={id} href={`/trpc/users/${id}`}>
-            <div>
-              {id} - {name}
-            </div>
+        {dogs?.map(({ name, createdAt }) => (
+          <a key={`${createdAt}`} href={`/trpc/dogs/${createdAt}`}>
+            <div>{`${createdAt} - ${name}`}</div>
           </a>
         ))}
       </div>
-      <button onClick={() => createUser({ name: `Richard ${Math.random()}` })}>
-        Create new user
+      <button onClick={() => createDog({ name: `Kiwi ${Math.random()}` })}>
+        Create new dog
       </button>
     </div>
   )
