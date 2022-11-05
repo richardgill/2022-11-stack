@@ -12,5 +12,11 @@ const startServer = async (): Promise<void> => {
   app.listen(port)
   console.log(`Server running at http://localhost:${port}`)
 }
-
+console.log('running')
 startServer().catch(console.error)
+
+// Needed for ts-node-dev
+process.on('SIGTERM', () => {
+  console.log('SIGTERM received, exiting')
+  process.exit(0)
+})
