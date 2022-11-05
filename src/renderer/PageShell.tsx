@@ -1,12 +1,27 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { httpBatchLink } from '@trpc/client'
 import React from 'react'
 import { Link } from './Link'
 import logo from './logo.svg'
 import './PageShell.css'
+import { trpcReact } from './trpc'
 import type { PageContext } from './types'
 import { PageContextProvider } from './usePageContext'
 
 const queryClient = new QueryClient()
+const trpcClient = trpcReact.createClient({
+  links: [
+    httpBatchLink({
+      url: 'http://localhost:3000/trpc-api',
+      // optional
+      // headers() {
+      //   return {
+      //     authorization: getAuthCookie(),
+      //   }
+      // },
+    }),
+  ],
+})
 function PageShell({
   children,
   pageContext,
@@ -16,34 +31,39 @@ function PageShell({
 }) {
   return (
     <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <PageContextProvider pageContext={pageContext}>
-          <Layout>
-            <Sidebar>
-              <Logo />
-              <Link className="navitem" href="/">
-                Home
-              </Link>
-              <Link className="navitem" href="/about">
-                About
-              </Link>
-              <Link className="navitem" href="/pre-rendered">
-                Pre Rendered
-              </Link>
-              <Link className="navitem" href="/star-wars-ssr/starships">
-                starships ssr
-              </Link>
-              <Link
-                className="navitem"
-                href="/star-wars-ssr-react-query/starships"
-              >
-                starships ssr react query
-              </Link>
-            </Sidebar>
-            <Content>{children}</Content>
-          </Layout>
-        </PageContextProvider>
-      </QueryClientProvider>
+      <trpcReact.Provider client={trpcClient} queryClient={queryClient}>
+        <QueryClientProvider client={queryClient}>
+          <PageContextProvider pageContext={pageContext}>
+            <Layout>
+              <Sidebar>
+                <Logo />
+                <Link className="navitem" href="/">
+                  Home
+                </Link>
+                <Link className="navitem" href="/about">
+                  About
+                </Link>
+                <Link className="navitem" href="/pre-rendered">
+                  Pre Rendered
+                </Link>
+                <Link className="navitem" href="/star-wars-ssr/starships">
+                  starships ssr
+                </Link>
+                <Link
+                  className="navitem"
+                  href="/star-wars-ssr-react-query/starships"
+                >
+                  starships ssr react query
+                </Link>
+                <Link className="navitem" href="/trpc/users">
+                  /trpc/users
+                </Link>
+              </Sidebar>
+              <Content>{children}</Content>
+            </Layout>
+          </PageContextProvider>
+        </QueryClientProvider>
+      </trpcReact.Provider>
     </React.StrictMode>
   )
 }

@@ -33,4 +33,5 @@ export const configureWeb = async (app: Express) => {
     const { body, statusCode, contentType } = httpResponse
     res.status(statusCode).type(contentType).send(body)
   })
+  return app
 }
