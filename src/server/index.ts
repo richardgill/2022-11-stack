@@ -1,14 +1,16 @@
 import express from 'express'
 import { configureWeb } from '~/server/web'
+import { configureTrpc } from './trpc'
 
 const startServer = async (): Promise<void> => {
-  const app = express()
+  let app = express()
 
-  await configureWeb(app)
+  app = configureTrpc(app)
+  app = await configureWeb(app)
 
   const port = process.env.PORT ?? 3000
   app.listen(port)
-  console.log(`Server running at http://localhodst:${port}`)
+  console.log(`Server running at http://localhost:${port}`)
 }
 
 startServer().catch(console.error)
