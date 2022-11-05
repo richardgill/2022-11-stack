@@ -3,7 +3,6 @@ lockfileVersion: 5.4
 specifiers:
   '@tanstack/react-query': ^4.14.3
   '@trpc/client': 10.0.0-proxy-beta.26
-  '@trpc/next': 10.0.0-proxy-beta.26
   '@trpc/react-query': 10.0.0-proxy-beta.26
   '@trpc/server': 10.0.0-proxy-beta.26
   '@types/compression': ^1.7.2
@@ -49,7 +48,6 @@ specifiers:
 dependencies:
   '@tanstack/react-query': 4.14.3_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': 10.0.0-proxy-beta.26_vu5ifdrqz65hq4g32lr3d5gbm4
-  '@trpc/next': 10.0.0-proxy-beta.26_432hbwsr5tx4wg27bxqsf7t7iy
   '@trpc/react-query': 10.0.0-proxy-beta.26_m6jlx2q6vysljzccia6ckhgbri
   '@trpc/server': 10.0.0-proxy-beta.26
   compression: 1.7.4
@@ -895,26 +893,6 @@ packages:
       '@trpc/server': 10.0.0-proxy-beta.26
     dependencies:
       '@trpc/server': 10.0.0-proxy-beta.26
-    dev: false
-
-  /@trpc/next/10.0.0-proxy-beta.26_432hbwsr5tx4wg27bxqsf7t7iy:
-    resolution: {integrity: sha512-msyNRgBVKPI+JnJynmUdE5QK/xAFAQYFPmAH1dJdM+nAxlk8ZNeRR5ohXK4oIqK/GTSMIdcNzDPdXFVB9KiiJQ==}
-    peerDependencies:
-      '@tanstack/react-query': ^4.3.8
-      '@trpc/client': 10.0.0-proxy-beta.26
-      '@trpc/react-query': ^10.0.0-proxy-beta.21
-      '@trpc/server': 10.0.0-proxy-beta.26
-      next: '*'
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-    dependencies:
-      '@tanstack/react-query': 4.14.3_biqbaboplfbrettd7655fr4n2y
-      '@trpc/client': 10.0.0-proxy-beta.26_vu5ifdrqz65hq4g32lr3d5gbm4
-      '@trpc/react-query': 10.0.0-proxy-beta.26_m6jlx2q6vysljzccia6ckhgbri
-      '@trpc/server': 10.0.0-proxy-beta.26
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-ssr-prepass: 1.5.0_react@18.2.0
     dev: false
 
   /@trpc/react-query/10.0.0-proxy-beta.26_m6jlx2q6vysljzccia6ckhgbri:
@@ -4625,14 +4603,6 @@ packages:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /react-ssr-prepass/1.5.0_react@18.2.0:
-    resolution: {integrity: sha512-yFNHrlVEReVYKsLI5lF05tZoHveA5pGzjFbFJY/3pOqqjGOmMmqx83N4hIjN2n6E1AOa+eQEUxs3CgRnPmT0RQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
