@@ -16,7 +16,7 @@ export const Page: React.FC = () => {
   })
   return (
     <div>
-      <h1>{`Starships, were mean't to fly`}</h1>
+      <h1>{`Users, were mean't to buy`}</h1>
       <div>
         <button onClick={() => refetch()}>Refetch</button>
         {isLoading || (isRefetching && <div>Loading...</div>)}
