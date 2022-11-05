@@ -34,3 +34,5 @@ export const Page: React.FC = () => {
     </div>
   )
 }
+
+export const doNotPrerender = false
