@@ -1,3 +1,4 @@
+import { ClerkProvider } from '@clerk/clerk-react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink } from '@trpc/client'
 import React from 'react'
@@ -35,45 +36,47 @@ function PageShell({
 }) {
   return (
     <React.StrictMode>
-      <trpcReact.Provider client={trpcClient} queryClient={queryClient}>
-        <QueryClientProvider client={queryClient}>
-          <PageContextProvider pageContext={pageContext}>
-            <Layout>
-              <Sidebar>
-                <Logo />
-                <Link className="navitem" href="/">
-                  Home
-                </Link>
-                <Link className="navitem" href="/auth">
-                  Login
-                </Link>
-                <Link className="navitem" href="/about">
-                  About
-                </Link>
-                <Link className="navitem" href="/pre-rendered">
-                  Pre Rendered
-                </Link>
-                <Link className="navitem" href="/star-wars-ssr/starships">
-                  starships ssr
-                </Link>
-                <Link
-                  className="navitem"
-                  href="/star-wars-ssr-react-query/starships"
-                >
-                  starships ssr react query
-                </Link>
-                <Link className="navitem" href="/trpc/users">
-                  /trpc/users
-                </Link>
-                <Link className="navitem" href="/trpc/dogs">
-                  /trpc/dogs
-                </Link>
-              </Sidebar>
-              <Content>{children}</Content>
-            </Layout>
-          </PageContextProvider>
-        </QueryClientProvider>
-      </trpcReact.Provider>
+      <ClerkProvider frontendApi={process.env.VITE_CLERK_FRONTEND_API}>
+        <trpcReact.Provider client={trpcClient} queryClient={queryClient}>
+          <QueryClientProvider client={queryClient}>
+            <PageContextProvider pageContext={pageContext}>
+              <Layout>
+                <Sidebar>
+                  <Logo />
+                  <Link className="navitem" href="/">
+                    Home
+                  </Link>
+                  <Link className="navitem" href="/auth">
+                    Login
+                  </Link>
+                  <Link className="navitem" href="/about">
+                    About
+                  </Link>
+                  <Link className="navitem" href="/pre-rendered">
+                    Pre Rendered
+                  </Link>
+                  <Link className="navitem" href="/star-wars-ssr/starships">
+                    starships ssr
+                  </Link>
+                  <Link
+                    className="navitem"
+                    href="/star-wars-ssr-react-query/starships"
+                  >
+                    starships ssr react query
+                  </Link>
+                  <Link className="navitem" href="/trpc/users">
+                    /trpc/users
+                  </Link>
+                  <Link className="navitem" href="/trpc/dogs">
+                    /trpc/dogs
+                  </Link>
+                </Sidebar>
+                <Content>{children}</Content>
+              </Layout>
+            </PageContextProvider>
+          </QueryClientProvider>
+        </trpcReact.Provider>
+      </ClerkProvider>
     </React.StrictMode>
   )
 }

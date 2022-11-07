@@ -22,6 +22,7 @@ export const configureWeb = async (app: Express) => {
   }
 
   app.get('*', async (req, res, next) => {
+    console.log('req', req)
     const pageContextInit = {
       urlOriginal: req.originalUrl,
     }
