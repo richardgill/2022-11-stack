@@ -20,6 +20,7 @@ export const ClerkAuth: React.FC<{
   return (
     <ClerkProvider
       frontendApi={import.meta.env.VITE_CLERK_FRONTEND_API}
+      localization={{}}
       navigate={(toUrl) => navigate(toUrl)}
     >
       {doesRequireAuth(pageContext) ? (

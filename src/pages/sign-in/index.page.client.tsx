@@ -1,4 +1,5 @@
 import { SignIn } from '@clerk/clerk-react'
+import { clerkApperance } from '~/utils/auth'
 import { getQueryParameterString } from '~/utils/routing'
 
 export const Page = () => {
@@ -6,6 +7,7 @@ export const Page = () => {
     <SignIn
       signUpUrl="/sign-up"
       redirectUrl={getQueryParameterString('redirectUrl')}
+      appearance={clerkApperance}
     />
   )
 }

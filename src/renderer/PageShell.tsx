@@ -1,6 +1,7 @@
 import {} from '@clerk/clerk-react'
 import React from 'react'
-import { ClerkAuth } from '~/components/clerkAuth'
+import { ClerkAuth } from '~/components/auth/clerkAuth'
+import { LogoutButton } from '~/components/auth/logoutButton'
 import { Link } from './Link'
 import logo from './logo.svg'
 import './PageShell.css'
@@ -53,6 +54,7 @@ function PageShell({
                 <Link className="navitem" href="/trpc/dogs">
                   /trpc/dogs
                 </Link>
+                <LogoutButton />
               </Sidebar>
               <Content>{children}</Content>
             </Layout>
