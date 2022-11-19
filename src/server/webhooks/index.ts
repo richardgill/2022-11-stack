@@ -1,6 +1,7 @@
 // import * as bodyParser from 'body-parser'
 import express, { Express } from 'express'
 import { Webhook } from 'svix'
+import { handleWebhooks } from './handleWebhooks'
 
 export const configureWebhooks = (app: Express) => {
   if (!process.env.CLERK_WEBHOOK_SECRET) {
@@ -11,7 +12,7 @@ export const configureWebhooks = (app: Express) => {
   app.post(
     '/clerk-webhook-api',
     express.raw({ type: 'application/json' }),
-    (req, res) => {
+    async (req, res) => {
       console.log('received webhook')
       const payload = req.body.toString()
       const headers = {
@@ -34,6 +35,7 @@ export const configureWebhooks = (app: Express) => {
         return
       }
       console.log(msg)
+      await handleWebhooks(msg)
       // Do something with the message...
 
       res.json({})

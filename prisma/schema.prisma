@@ -14,10 +14,10 @@ model dogs {
 }
 
 model User {
-  id           BigInt    @id(map: "users_pkey") @default(autoincrement())
-  createdAt    DateTime? @default(now()) @db.Timestamptz(6)
+  id           BigInt   @id(map: "users_pkey") @default(autoincrement())
+  createdAt    DateTime @db.Timestamp(6)
   email        String
-  updatedAt    DateTime? @default(now()) @db.Timestamp(6)
+  updatedAt    DateTime @db.Timestamp(6)
   profileImage String?
-  userId       String    @unique(map: "users_userId_key")
+  userId       String   @unique(map: "users_userId_key")
 }

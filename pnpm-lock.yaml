@@ -24,6 +24,7 @@ specifiers:
   body-parser: ^1.20.1
   compression: ^1.7.4
   cross-env: ^7.0.3
+  dayjs: ^1.11.6
   dotenv: ^16.0.3
   eslint: ^8.0.1
   eslint-config-prettier: ^8.5.0
@@ -73,6 +74,7 @@ dependencies:
   body-parser: 1.20.1
   compression: 1.7.4
   cross-env: 7.0.3
+  dayjs: 1.11.6
   dotenv: 16.0.3
   express: 4.18.2
   jsonwebtoken: 8.5.1
@@ -2166,6 +2168,10 @@ packages:
       whatwg-mimetype: 3.0.0
       whatwg-url: 11.0.0
     dev: true
+
+  /dayjs/1.11.6:
+    resolution: {integrity: sha512-zZbY5giJAinCG+7AGaw0wIhNZ6J8AhWuSXKvuc1KAyMiRsvGQWqh4L+MomvhdAYjN+lqvVCMq1I41e3YHvXkyQ==}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
