@@ -2,11 +2,13 @@ import 'dotenv/config'
 import express from 'express'
 import { configureWeb } from '~/server/web'
 import { configureTrpc } from './trpc'
+import { configureWebhooks } from './webhooks'
 
 console.log('process.env', process.env)
 const startServer = async (): Promise<void> => {
   let app = express()
 
+  app = configureWebhooks(app)
   app = configureTrpc(app)
   app = await configureWeb(app)
 

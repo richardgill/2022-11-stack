@@ -15,3 +15,6 @@ production server side code run by ts-node, this is apparently ok in production
 
 
 trpc - with superjson
+
+
+`svix listen http://localhost:3000/clerk-webhook-api`
