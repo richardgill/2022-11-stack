@@ -6,7 +6,7 @@ export const configureWebhooks = (app: Express) => {
   if (!process.env.CLERK_WEBHOOK_SECRET) {
     throw new Error('CLERK_WEBHOOK_SECRET not set')
   }
-  const wh = new Webhook(process.env.CLERK_WEBHOOK_SECRET ?? '')
+  const webhook = new Webhook(process.env.CLERK_WEBHOOK_SECRET ?? '')
 
   app.post(
     '/clerk-webhook-api',
@@ -27,7 +27,7 @@ export const configureWebhooks = (app: Express) => {
       )
       let msg
       try {
-        msg = wh.verify(payload, headers)
+        msg = webhook.verify(payload, headers)
       } catch (err) {
         console.error(err)
         res.status(400).json({})
