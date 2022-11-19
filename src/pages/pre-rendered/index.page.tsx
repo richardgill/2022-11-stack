@@ -11,4 +11,5 @@ export const Page = () => {
 }
 
 export const documentProps = { title: 'Pre rendered' }
+export const requiresAuth = false
 export const doNotPrerender = false

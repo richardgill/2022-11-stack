@@ -1,3 +1,4 @@
+import { LooseAuthProp } from '@clerk/clerk-sdk-node'
 import type { PageContextBuiltIn } from 'vite-plugin-ssr'
 // import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client/router' // When using Client Routing
 import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client'
@@ -9,12 +10,22 @@ export interface PageContextCustom {
   Page: Page
   pageProps?: PageProps
   urlPathname: string
+  auth: LooseAuthProp['auth']
+  redirectTo: string
   exports: {
+    requiresAuth?: boolean
     documentProps?: {
       title?: string
       description?: string
     }
   }
+}
+
+export interface PageContextInit {
+  /** The URL of the HTTP request */
+  urlOriginal?: string
+  auth?: LooseAuthProp['auth']
+  redirectTo?: string
 }
 
 type PageContextServer = PageContextBuiltIn<Page> & PageContextCustom

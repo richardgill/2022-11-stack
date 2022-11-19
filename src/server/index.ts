@@ -1,7 +1,9 @@
+import 'dotenv/config'
 import express from 'express'
 import { configureWeb } from '~/server/web'
 import { configureTrpc } from './trpc'
 
+console.log('process.env', process.env)
 const startServer = async (): Promise<void> => {
   let app = express()
 

@@ -1,12 +1,18 @@
 import ReactDOMServer from 'react-dom/server'
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr'
 import { getPageTitle } from '~/renderer/pageTitle'
+import { doesRequireAuth } from '~/utils/auth'
 import logoUrl from './logo.svg'
 import { PageShell } from './PageShell'
 import type { PageContextServer } from './types'
 
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ['pageProps', 'urlPathname', 'documentProps']
+export const passToClient = [
+  'pageProps',
+  'urlPathname',
+  'documentProps',
+  'requiresAuth',
+]
 
 async function render(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext
@@ -39,9 +45,14 @@ async function render(pageContext: PageContextServer) {
       </body>
     </html>`
 
+  const requiresAuth = doesRequireAuth(pageContext) && isSSR // client only pages pass through this code without the `requiresAuth` export :shrug:
   return {
     documentHtml,
     pageContext: {
+      redirectTo:
+        requiresAuth && !pageContext.auth?.sessionId
+          ? `/sign-up?redirectUrl=${process.env.BASE_URL}${pageContext.urlPathname}`
+          : undefined,
       // We can add some `pageContext` here, which is useful if we want to do page redirection https://vite-plugin-ssr.com/page-redirection
     },
   }

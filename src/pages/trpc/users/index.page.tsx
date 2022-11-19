@@ -36,3 +36,4 @@ export const Page: React.FC = () => {
 }
 
 export const doNotPrerender = false
+export const requiresAuth = false

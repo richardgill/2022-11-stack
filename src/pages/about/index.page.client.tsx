@@ -1,6 +1,6 @@
 import './code.css'
 
-function Page() {
+export const Page = () => {
   return (
     <>
       <h1>About</h1>
@@ -11,5 +11,5 @@ function Page() {
   )
 }
 
-export { Page }
-export const documentProps = { title: 'About 123' }
+export const documentProps = { title: 'About 123', description: 'About' }
+export const requiresAuth = false
