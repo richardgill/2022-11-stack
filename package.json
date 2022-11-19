@@ -4,7 +4,7 @@
   },
   "scripts": {
     "build": "vite build",
-    "ci": "pnpm run prettier:check && pnpm run lint && tsc --noEmit && sort-package-json package.json --check && pnpm test",
+    "ci": "pnpm prisma:generate && pnpm run prettier:check && pnpm run lint && tsc --noEmit && sort-package-json package.json --check && pnpm test",
     "dev": "ts-node-dev -r tsconfig-paths/register ./src/server/index.ts",
     "lint": "eslint ./src",
     "prepare": "husky install",
