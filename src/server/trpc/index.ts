@@ -2,19 +2,10 @@ import { PrismaClient } from '@prisma/client'
 import { inferAsyncReturnType, initTRPC, TRPCError } from '@trpc/server'
 import * as trpcExpress from '@trpc/server/adapters/express'
 import { Express } from 'express'
-import jwt from 'jsonwebtoken'
 import superjson from 'superjson'
 import { z } from 'zod'
+import { verifyToken } from './jwt'
 const prisma = new PrismaClient()
-
-interface UserAuth {
-  aud: 'authenticated'
-  exp: number
-  email: string
-  role: 'authenticated'
-  session_id: 'string'
-  sub: 'string'
-}
 
 // created for each request
 const createContext = async ({
@@ -24,17 +15,13 @@ const createContext = async ({
   const getUserFromHeader = async () => {
     if (req.headers.authorization) {
       const accessToken = req.headers.authorization
-      const user: UserAuth = jwt.verify(
-        accessToken,
-        process.env.JWT_SECRET ?? ''
-      ) as UserAuth
-      return user
+      return verifyToken(accessToken)
     }
     return null
   }
-  const user = await getUserFromHeader()
+  const auth = await getUserFromHeader()
   return {
-    user,
+    auth,
   }
 }
 
@@ -55,17 +42,16 @@ const userList: User[] = [
 ]
 
 const isAuthed = t.middleware(({ next, ctx }) => {
-  if (ctx.user?.role !== 'authenticated') {
+  if (ctx.auth?.status !== 'authenticated') {
     throw new TRPCError({ code: 'UNAUTHORIZED' })
   }
   return next({
     ctx: {
-      user: ctx.user,
+      auth: ctx.auth,
     },
   })
 })
 export const authedProcedure = t.procedure.use(isAuthed)
-console.log('appRouter')
 const appRouter = t.router({
   users: t.router({
     getById: t.procedure.input(z.string()).query((req) => {
@@ -90,8 +76,8 @@ const appRouter = t.router({
   }),
   dogs: t.router({
     getAll: authedProcedure.query(async ({ ctx }) => {
-      const supabaseUserId = ctx.user.sub
-      console.log('supabaseUserId', supabaseUserId)
+      const userId = ctx.auth.userId
+      console.log('userId', userId)
       const dogs = await prisma.dogs.findMany()
       return dogs.map((dog) => ({
         id: dog.id,

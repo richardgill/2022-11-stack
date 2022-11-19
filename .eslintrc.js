@@ -21,5 +21,6 @@ module.exports = {
     '@typescript-eslint/return-await': 'off',
     '@typescript-eslint/promise-function-async': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
   },
 }
