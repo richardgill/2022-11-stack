@@ -10,6 +10,7 @@ const dataToUser = (data: any): Omit<User, 'id'> => {
     updatedAt: new Date(data.updated_at),
   }
 }
+
 export const handleWebhooks = async (payload: any) => {
   if (payload.type === 'user.created') {
     await prisma.user.create({ data: dataToUser(payload.data) })

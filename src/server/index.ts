@@ -4,7 +4,6 @@ import { configureWeb } from '~/server/web'
 import { configureTrpc } from './trpc'
 import { configureWebhooks } from './webhooks'
 
-console.log('process.env', process.env)
 const startServer = async (): Promise<void> => {
   let app = express()
 
@@ -20,7 +19,7 @@ console.log('running')
 startServer().catch(console.error)
 
 // Needed for ts-node-dev
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.SERVER_HOT_RELOAD === 'true') {
   process.on('SIGTERM', () => {
     console.log('SIGTERM received, exiting')
     process.exit(0)

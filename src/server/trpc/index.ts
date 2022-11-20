@@ -8,20 +8,9 @@ import { verifyToken } from './jwt'
 const prisma = new PrismaClient()
 
 // created for each request
-const createContext = async ({
-  req,
-  res,
-}: trpcExpress.CreateExpressContextOptions) => {
-  const getUserFromHeader = async () => {
-    if (req.headers.authorization) {
-      const accessToken = req.headers.authorization
-      return verifyToken(accessToken)
-    }
-    return null
-  }
-  const auth = await getUserFromHeader()
+const createContext = ({ req }: trpcExpress.CreateExpressContextOptions) => {
   return {
-    auth,
+    auth: verifyToken(req.headers.authorization),
   }
 }
 
