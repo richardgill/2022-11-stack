@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { last } from 'lodash-es'
 import React from 'react'
+import { DashboardShell } from '~/components/shells/dashboardShell'
 import {
   Starship,
   StarshipResponse,
@@ -48,7 +49,7 @@ export const Page: React.FC<{ initialStarships: Starship[] }> = ({
   })
 
   return (
-    <div>
+    <DashboardShell>
       <h1>{`Starships, were mean't to fly`}</h1>
       <div>
         <button onClick={() => refetch()}>Refetch</button>
@@ -61,6 +62,6 @@ export const Page: React.FC<{ initialStarships: Starship[] }> = ({
           </a>
         ))}
       </div>
-    </div>
+    </DashboardShell>
   )
 }

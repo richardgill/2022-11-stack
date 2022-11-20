@@ -1,12 +1,14 @@
+import { DashboardShell } from '~/components/shells/dashboardShell'
+
 export const Page = () => {
   return (
-    <>
+    <DashboardShell>
       <h1>Welcome</h1>
       This page is prerendered
       <ul>
         <li>Rendered to HTML.</li>
       </ul>
-    </>
+    </DashboardShell>
   )
 }
 

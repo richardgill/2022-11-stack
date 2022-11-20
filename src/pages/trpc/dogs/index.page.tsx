@@ -1,4 +1,5 @@
 import React from 'react'
+import { DashboardShell } from '~/components/shells/dashboardShell'
 import { trpcReact } from '~/utils/trpc'
 
 export const Page: React.FC = () => {
@@ -16,7 +17,7 @@ export const Page: React.FC = () => {
   })
   console.log('dogs', dogs)
   return (
-    <div>
+    <DashboardShell>
       <h1>{`Users, were mean't to buy`}</h1>
       <div>
         <button onClick={() => refetch()}>Refetch</button>
@@ -30,7 +31,7 @@ export const Page: React.FC = () => {
       <button onClick={() => createDog({ name: `Kiwi ${Math.random()}` })}>
         Create new dog
       </button>
-    </div>
+    </DashboardShell>
   )
 }
 
