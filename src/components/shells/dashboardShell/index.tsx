@@ -1,7 +1,7 @@
 import React from 'react'
 import { LogoutButton } from '~/components/auth/logoutButton'
 import { Link } from '~/components/link'
-import logo from './logo.svg'
+import logo from '~/renderer/logo.svg'
 
 export const DashboardShell = ({ children }: { children: React.ReactNode }) => {
   return (
