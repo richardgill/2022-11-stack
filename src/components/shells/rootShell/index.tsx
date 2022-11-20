@@ -3,7 +3,7 @@ import { ClerkAuth } from '~/components/auth/clerkAuth'
 import { TrpcProvider } from '~/components/trpcProvider'
 import type { PageContext } from '~/renderer/types'
 import { PageContextProvider } from '~/renderer/usePageContext'
-import './index.css'
+import './style.css'
 
 export const RootShell: React.FC<{
   children: React.ReactNode
