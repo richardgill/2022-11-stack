@@ -101,6 +101,9 @@ export const configureTrpc = (app: Express) => {
     trpcExpress.createExpressMiddleware({
       router: appRouter,
       createContext,
+      onError: ({ error, type, path, input, ctx, req }) => {
+        console.error('TRPC Error:', error)
+      },
     })
   )
   return app
