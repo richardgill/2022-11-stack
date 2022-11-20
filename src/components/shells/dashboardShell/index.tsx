@@ -2,13 +2,7 @@ import { Fragment, ReactNode } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline/index'
 import clsx from 'clsx'
-
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+import { useUser } from '@clerk/clerk-react'
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -17,15 +11,12 @@ const navigation = [
   { name: 'Calendar', href: '#', current: false },
   { name: 'Reports', href: '#', current: false },
 ]
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
+const userNavigation = [{ name: 'Sign out', href: '/sign-out' }]
 
 export const DashboardShell: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
+  const { user } = useUser()
   return (
     <>
       {/*
@@ -79,7 +70,8 @@ export const DashboardShell: React.FC<{ children: ReactNode }> = ({
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src={user.imageUrl}
+                              src={user?.profileImageUrl}
+                              referrerPolicy="no-referrer"
                               alt=""
                             />
                           </Menu.Button>
@@ -158,16 +150,17 @@ export const DashboardShell: React.FC<{ children: ReactNode }> = ({
                     <div className="flex-shrink-0">
                       <img
                         className="h-10 w-10 rounded-full"
-                        src={user.imageUrl}
+                        src={user?.profileImageUrl}
+                        referrerPolicy="no-referrer"
                         alt=""
                       />
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium text-white">
-                        {user.name}
+                        {user?.fullName}
                       </div>
                       <div className="text-sm font-medium text-blue-300">
-                        {user.email}
+                        {user?.emailAddresses[0].emailAddress}
                       </div>
                     </div>
                   </div>
