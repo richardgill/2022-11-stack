@@ -1,7 +1,7 @@
 import ReactDOMServer from 'react-dom/server'
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr'
-import { getPageTitle } from '~/renderer/pageTitle'
 import { doesRequireAuth } from '~/utils/auth'
+import { getPageTitle } from '~/utils/pageTitle'
 import logoUrl from './logo.svg'
 import { PageShell } from './PageShell'
 import type { PageContextServer } from './types'
@@ -58,5 +58,5 @@ async function render(pageContext: PageContextServer) {
   }
 }
 
-export const doNotPrerender = true
+export const doNotPrerender = false
 export { render }

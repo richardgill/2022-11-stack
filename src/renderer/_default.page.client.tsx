@@ -1,6 +1,6 @@
 import { createRoot, hydrateRoot, Root } from 'react-dom/client'
+import { getPageTitle } from '../utils/pageTitle'
 import { PageShell } from './PageShell'
-import { getPageTitle } from './pageTitle'
 import type { PageContextClient } from './types'
 
 let root: Root

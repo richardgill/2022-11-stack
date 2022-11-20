@@ -1,4 +1,4 @@
-import { last } from 'lodash'
+import { last } from 'lodash-es'
 import React from 'react'
 import { Starship, StarshipResponse } from './types'
 
@@ -44,3 +44,5 @@ export const Page: React.FC<{ starships: Starship[] }> = ({ starships }) => {
     </div>
   )
 }
+
+export const doNotPrerender = true
