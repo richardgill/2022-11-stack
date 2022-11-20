@@ -24,11 +24,11 @@ export const variantStyles = {
       'ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white',
   },
 }
-type Variants = 'solid' | 'outline' | undefined
-type Colors = 'slate' | 'blue' | 'white' | undefined
+type Variants = 'solid' | 'outline'
+type Colors = 'slate' | 'blue' | 'white'
 interface ButtonProps {
-  variant: Variants
-  color: 'slate' | 'blue' | 'white'
+  variant?: Variants
+  color?: 'slate' | 'blue' | 'white'
   className?: string
 }
 
