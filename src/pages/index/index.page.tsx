@@ -1,8 +1,9 @@
+import { DashboardShell } from '~/components/shells/dashboardShell'
 import { Counter } from './counter'
 
 function Page() {
   return (
-    <>
+    <DashboardShell>
       <h1>Welcome</h1>
       This page is:
       <ul>
@@ -11,7 +12,7 @@ function Page() {
           Interactive. <Counter />
         </li>
       </ul>
-    </>
+    </DashboardShell>
   )
 }
 

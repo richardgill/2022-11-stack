@@ -1,9 +1,9 @@
 import ReactDOMServer from 'react-dom/server'
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr'
+import { RootShell } from '~/components/shells/rootShell'
 import { doesRequireAuth } from '~/utils/auth'
 import { getPageTitle } from '~/utils/pageTitle'
 import logoUrl from './logo.svg'
-import { PageShell } from './PageShell'
 import type { PageContextServer } from './types'
 
 // See https://vite-plugin-ssr.com/data-fetching
@@ -19,9 +19,9 @@ async function render(pageContext: PageContextServer) {
   const isSSR = Boolean(Page)
   const pageHtml = isSSR
     ? ReactDOMServer.renderToString(
-        <PageShell pageContext={pageContext}>
+        <RootShell pageContext={pageContext}>
           <Page {...pageProps} />
-        </PageShell>
+        </RootShell>
       )
     : ''
 

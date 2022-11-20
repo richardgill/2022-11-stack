@@ -1,15 +1,15 @@
 import { createRoot, hydrateRoot, Root } from 'react-dom/client'
+import { RootShell } from '~/components/shells/rootShell'
 import { getPageTitle } from '../utils/pageTitle'
-import { PageShell } from './PageShell'
 import type { PageContextClient } from './types'
 
 let root: Root
 async function render(pageContext: PageContextClient) {
   const { Page, pageProps } = pageContext
   const page = (
-    <PageShell pageContext={pageContext}>
+    <RootShell pageContext={pageContext}>
       <Page {...pageProps} />
-    </PageShell>
+    </RootShell>
   )
 
   const container = document.getElementById('page-view')
