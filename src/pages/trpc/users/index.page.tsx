@@ -1,5 +1,5 @@
 import React from 'react'
-import { trpcReact } from '~/renderer/trpc'
+import { trpcReact } from '~/utils/trpc'
 
 export const Page: React.FC = () => {
   const trpcContext = trpcReact.useContext()

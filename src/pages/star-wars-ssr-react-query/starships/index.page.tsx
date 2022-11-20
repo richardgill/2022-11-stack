@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { last } from 'lodash'
+import { last } from 'lodash-es'
 import React from 'react'
 import {
   Starship,
