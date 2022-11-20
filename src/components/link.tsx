@@ -1,11 +1,13 @@
 import React from 'react'
 import { usePageContext } from '../renderer/usePageContext'
 
-function Link(props: {
+export interface LinkProps {
   href?: string
   className?: string
   children: React.ReactNode
-}) {
+}
+
+export const Link: React.FC<LinkProps> = (props) => {
   const pageContext = usePageContext()
   const className = [
     props.className,
@@ -15,5 +17,3 @@ function Link(props: {
     .join(' ')
   return <a {...props} className={className} />
 }
-
-export { Link }

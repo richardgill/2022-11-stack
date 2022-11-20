@@ -1,20 +1,5 @@
-import { DashboardShell } from '~/components/shells/dashboardShell'
-import { Counter } from './counter'
+import { MarketingLanding } from '~/components/pages/marketingLanding'
 
-function Page() {
-  return (
-    <DashboardShell>
-      <h1>Welcome</h1>
-      This page is:
-      <ul>
-        <li>Rendered to HTML.</li>
-        <li>
-          Interactive. <Counter />
-        </li>
-      </ul>
-    </DashboardShell>
-  )
-}
-
-export { Page }
-export const documentProps = { title: 'Home 123' }
+export const Page = () => <MarketingLanding />
+export const documentProps = { title: 'Taxpal' }
+export const requiresAuth = false

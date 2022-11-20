@@ -4,6 +4,7 @@ import { TrpcProvider } from '~/components/trpcProvider'
 import type { PageContext } from '~/renderer/types'
 import { PageContextProvider } from '~/renderer/usePageContext'
 import './style.css'
+import 'focus-visible'
 
 export const RootShell: React.FC<{
   children: React.ReactNode

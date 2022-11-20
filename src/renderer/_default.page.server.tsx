@@ -32,16 +32,29 @@ async function render(pageContext: PageContextServer) {
   const desc = documentProps?.description ?? 'App using Vite + vite-plugin-ssr'
 
   const documentHtml = escapeInject`<!DOCTYPE html>
-    <html lang="en">
+    <html class="h-full scroll-smooth bg-white antialiased [font-feature-settings:'ss01']"
+ lang="en">
       <head>
         <meta charset="UTF-8" />
         <link rel="icon" href="${logoUrl}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend:wght@400;500&display=swap"
+        />
       </head>
-      <body>
-        <div id="page-view">${dangerouslySkipEscape(pageHtml)}</div>
+      <body class="flex h-full flex-col">
+        <div id="page-view" style="min-height: 100%;">${dangerouslySkipEscape(
+          pageHtml
+        )}</div>
       </body>
     </html>`
 

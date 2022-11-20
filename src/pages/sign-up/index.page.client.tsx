@@ -1,16 +1,6 @@
-import { SignUp } from '@clerk/clerk-react'
-import { clerkApperance } from '~/utils/auth'
-import { getQueryParameterString } from '~/utils/routing'
+import { SignUp } from '~/components/pages/auth/signUp'
 
-export const Page = () => {
-  return (
-    <SignUp
-      signInUrl="/sign-in"
-      redirectUrl={getQueryParameterString('redirectUrl')}
-      appearance={clerkApperance}
-    />
-  )
-}
+export const Page = () => <SignUp />
 
 export const requiresAuth = false
 export const documentProps = { title: 'Sign up' }
