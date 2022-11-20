@@ -50,7 +50,15 @@ export const useAuth = () => {
   // @ts-expect-error this is how to check we are client side render (needs to be === false to avoid undefined)
   if (pageContext.isHydration === false) {
     const auth = useAuthClerk()
-    return pick(auth, 'isLoaded', 'isSignedIn', 'sessionId', 'userId', 'actor')
+    return pick(
+      auth,
+      'isLoaded',
+      'isSignedIn',
+      'sessionId',
+      'userId',
+      'actor',
+      'signOut'
+    )
   }
   const { sessionId, userId, actor } = pageContext.auth
   if (sessionId === undefined && userId === undefined) {
@@ -60,6 +68,7 @@ export const useAuth = () => {
       sessionId,
       userId,
       actor: null,
+      signOut: () => null,
     }
   }
   if (sessionId === null && userId === null) {
@@ -69,6 +78,7 @@ export const useAuth = () => {
       sessionId,
       userId,
       actor: null,
+      signOut: () => null,
     }
   }
   if (!!sessionId && !!userId) {
@@ -78,6 +88,7 @@ export const useAuth = () => {
       sessionId,
       userId,
       actor,
+      signOut: () => null,
     }
   }
   throw new Error('invalid clerk auth state')

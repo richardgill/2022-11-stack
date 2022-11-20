@@ -1,6 +1,5 @@
 import { last } from 'lodash-es'
 import React from 'react'
-import { DashboardShell } from '~/components/shells/dashboardShell'
 import { Starship, StarshipResponse } from './types'
 
 const delay = async (time: number) =>
@@ -31,7 +30,7 @@ export const onBeforeRender = async () => {
 
 export const Page: React.FC<{ starships: Starship[] }> = ({ starships }) => {
   return (
-    <DashboardShell>
+    <>
       <h1>{`Starships, were mean't to fly`}</h1>
       <div>
         {starships.map(({ name, passengers, id }) => (
@@ -42,7 +41,7 @@ export const Page: React.FC<{ starships: Starship[] }> = ({ starships }) => {
           </a>
         ))}
       </div>
-    </DashboardShell>
+    </>
   )
 }
 
