@@ -16,7 +16,6 @@ export const passToClient = [
 ]
 
 async function render(pageContext: PageContextServer) {
-  console.log('server pageContext', pageContext.auth)
   const { Page, pageProps } = pageContext
   const isSSR = Boolean(Page)
   const pageHtml = isSSR

@@ -5,6 +5,7 @@ import { useAuth } from '~/components/auth/clerkAuth'
 export const Page = () => {
   const auth = useAuth()
   if (!auth.isLoaded) {
+    console.log('auth not loaded')
     return <div>Loading...</div>
   }
   return auth.isSignedIn ? <Home /> : <MarketingLanding />
@@ -12,4 +13,4 @@ export const Page = () => {
 
 export const documentProps = { title: 'Taxpal' }
 export const requiresAuth = false
-// export const doNotPrerender = true
+export const doNotPrerender = true
