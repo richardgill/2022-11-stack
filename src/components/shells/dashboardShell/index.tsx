@@ -1,6 +1,6 @@
 import { Fragment, ReactNode } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline/index'
 import clsx from 'clsx'
 
 const user = {
