@@ -2,12 +2,22 @@
 
 - Use `fnm` to manage node versions
 - Install `pnpm` as package manager
-- Run `pnpm install && pnpm dev` to get going
+- Run `fnm use && pnpm install && pnpm dev` to get going
 
 # Stack
 
+Inspiration from: [create-t3-app](https://github.com/t3-oss/create-t3-app)
+
 - Vite
 - vite-plugin-ssr (next.js features) https://vite-plugin-ssr.com/
+- Tailwindcss (with tailwind-ui)
+- TRPC (a bit like graphql-like)
+  - Superjson to serialize things
+- Prisma, typescript bindings to talk to postgres
+- Database - Supabase (or any postgres db)
+- Clerk.dev for auth (sign up and sign in)
+- Mixpanel analytics
+- Hotjar user tracking
 
 Notes:
 
