@@ -1,5 +1,5 @@
-import { LinkButton } from '~/components/Button'
-import { Container } from '~/components/Container'
+import { LinkButton } from '~/components/button'
+import { Container } from '~/components/container'
 
 export const Hero = () => {
   return (

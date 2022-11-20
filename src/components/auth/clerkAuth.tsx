@@ -4,7 +4,7 @@ import {
   SignedOut,
   useAuth as useAuthClerk,
 } from '@clerk/clerk-react'
-import { pick } from 'lodash'
+import { pick } from 'lodash-es'
 import { useEffect } from 'react'
 import { navigate } from 'vite-plugin-ssr/client/router'
 import { PageContext } from '~/renderer/types'

@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
-import { LinkButton } from '~/components/Button'
-import { Container } from '~/components/Container'
+import { LinkButton } from '~/components/button'
+import { Container } from '~/components/container'
 
 const SwirlyDoodle: React.FC<{ className?: string }> = ({ className }) => {
   return (
