@@ -12,9 +12,11 @@ export const passToClient = [
   'urlPathname',
   'documentProps',
   'requiresAuth',
+  'auth',
 ]
 
 async function render(pageContext: PageContextServer) {
+  console.log('server pageContext', pageContext.auth)
   const { Page, pageProps } = pageContext
   const isSSR = Boolean(Page)
   const pageHtml = isSSR
@@ -62,6 +64,7 @@ async function render(pageContext: PageContextServer) {
   return {
     documentHtml,
     pageContext: {
+      auth: pageContext.auth,
       redirectTo:
         requiresAuth && !pageContext.auth?.sessionId
           ? `/sign-up?redirectUrl=${process.env.BASE_URL}${pageContext.urlPathname}`
@@ -70,6 +73,14 @@ async function render(pageContext: PageContextServer) {
     },
   }
 }
+
+// from: https://vite-plugin-ssr.com/clientRouting
+// The `onBeforeRender()` hook is called for the first page as well as upon page navigation.
+// (Whereas `render()` is called only for the first page.)
+// export const onBeforeRender = async () => {
+//   console.log('onBeforeRender', onBeforeRender)
+//   return {}
+// }
 
 export const doNotPrerender = false
 export { render }

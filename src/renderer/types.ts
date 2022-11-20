@@ -5,11 +5,16 @@ import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client'
 type Page = (pageProps: PageProps) => React.ReactElement
 interface PageProps {}
 
+type Auth = Pick<
+  LooseAuthProp['auth'],
+  'sessionId' | 'userId' | 'actor' | 'claims'
+>
+
 export interface PageContextCustom {
   Page: Page
   pageProps?: PageProps
   urlPathname: string
-  auth: LooseAuthProp['auth']
+  auth: Auth
   redirectTo: string
   exports: {
     requiresAuth?: boolean
@@ -23,7 +28,7 @@ export interface PageContextCustom {
 export interface PageContextInit {
   /** The URL of the HTTP request */
   urlOriginal?: string
-  auth?: LooseAuthProp['auth']
+  auth?: Auth
   redirectTo?: string
 }
 

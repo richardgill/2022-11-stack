@@ -1,13 +1,12 @@
 import { ClerkExpressWithAuth, WithAuthProp } from '@clerk/clerk-sdk-node'
 import compression from 'compression'
 import { Express, Request } from 'express'
+import { pick } from 'lodash'
 import path from 'path'
 import { renderPage } from 'vite-plugin-ssr'
 import { PageContextInit } from '~/renderer/types'
 const isProduction = process.env.NODE_ENV === 'production'
 const root = path.join(__dirname, '..', '..')
-
-// type ViteRequest = Request<ParamsDictionary, any, any, QueryString.ParsedQs, Record<string, any>>
 
 export const configureWeb = async (app: Express) => {
   app.use(compression())
@@ -32,7 +31,7 @@ export const configureWeb = async (app: Express) => {
     async (req: WithAuthProp<Request>, res, next) => {
       const pageContextInit: PageContextInit = {
         urlOriginal: req.originalUrl,
-        auth: req.auth,
+        auth: pick(req.auth, 'sessionId', 'userId', 'actor', 'claims'),
         redirectTo: undefined,
       }
       const pageContext = await renderPage(pageContextInit)

@@ -16,6 +16,7 @@ specifiers:
   '@types/express': ^4.17.13
   '@types/jest': ^29.2.1
   '@types/jsonwebtoken': ^8.5.9
+  '@types/lodash': ^4.14.189
   '@types/lodash-es': ^4.17.6
   '@types/node': ^17.0.31
   '@types/react': ^18.0.8
@@ -43,6 +44,7 @@ specifiers:
   jest-environment-jsdom: ^29.2.2
   jsonwebtoken: ^8.5.1
   lint-staged: ^13.0.3
+  lodash: ^4.17.21
   lodash-es: ^4.17.21
   postcss: ^8.4.19
   postcss-focus-visible: ^7.1.0
@@ -88,6 +90,7 @@ dependencies:
   express: 4.18.2
   focus-visible: 5.2.0
   jsonwebtoken: 8.5.1
+  lodash: 4.17.21
   lodash-es: 4.17.21
   postcss-focus-visible: 7.1.0_postcss@8.4.19
   query-string: 7.1.1
@@ -109,6 +112,7 @@ devDependencies:
   '@types/express': 4.17.14
   '@types/jest': 29.2.1
   '@types/jsonwebtoken': 8.5.9
+  '@types/lodash': 4.14.189
   '@types/lodash-es': 4.17.6
   '@types/node': 17.0.45
   '@types/react': 18.0.24
@@ -1267,11 +1271,11 @@ packages:
   /@types/lodash-es/4.17.6:
     resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
     dependencies:
-      '@types/lodash': 4.14.187
+      '@types/lodash': 4.14.189
     dev: true
 
-  /@types/lodash/4.14.187:
-    resolution: {integrity: sha512-MrO/xLXCaUgZy3y96C/iOsaIqZSeupyTImKClHunL5GrmaiII2VwvWmLBu2hwa0Kp0sV19CsyjtrTc/Fx8rg/A==}
+  /@types/lodash/4.14.189:
+    resolution: {integrity: sha512-kb9/98N6X8gyME9Cf7YaqIMvYGnBSWqEci6tiettE6iJWH1XdJz/PO8LB0GtLCG7x8dU3KWhZT+lA1a35127tA==}
     dev: true
 
   /@types/mime/3.0.1:
@@ -4513,6 +4517,10 @@ packages:
 
   /lodash.once/4.1.1:
     resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
+    dev: false
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: false
 
   /log-update/4.0.0:
