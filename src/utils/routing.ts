@@ -16,4 +16,4 @@ export const pageIdToRoute = (pageId: string) =>
   pageId
     .replace('/src/pages', '')
     .replace(/\/index$/, '')
-    .replace(/^\/index$/, '/')
+    .replace(/^\/index$/, '/') // this fixes the route: "/index" which should be: "/"
