@@ -13,4 +13,7 @@ export const getQueryParameterString = (queryParam: string) => {
 }
 
 export const pageIdToRoute = (pageId: string) =>
-  pageId.replace('/src/pages', '').replace(/\/index$/, '')
+  pageId
+    .replace('/src/pages', '')
+    .replace(/\/index$/, '')
+    .replace(/^\/index$/, '/')
