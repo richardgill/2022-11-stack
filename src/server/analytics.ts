@@ -10,5 +10,13 @@ export const configureAnalyticsProxy = (app: Express) => {
       pathRewrite: { '^/mp': '/' },
     })
   )
+  app.use(
+    '/ph',
+    createProxyMiddleware({
+      target: 'https://app.posthog.com',
+      changeOrigin: true,
+      pathRewrite: { '^/ph': '/' },
+    })
+  )
   return app
 }

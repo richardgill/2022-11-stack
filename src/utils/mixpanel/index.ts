@@ -2,7 +2,7 @@
 import mixpanelBrowser, { Dict } from 'mixpanel-browser'
 import { usePageContext } from '~/renderer/usePageContext'
 import { getQueryParameters } from '../routing'
-import { MixpanelEvent } from './events'
+import { AnalyticsEvent } from './events'
 
 const mixpanelKey = import.meta.env.VITE_MIXPANEL_PUBLIC_KEY
 
@@ -18,7 +18,7 @@ interface MixpanelInstance {
   getDistinctId: () => string
   identify: (id: string) => void
   reset: () => void
-  track: (event: MixpanelEvent, props?: Dict) => void
+  track: (event: AnalyticsEvent, props?: Dict) => void
   trackPageView: () => void
   people: {
     set: (props: Dict) => void
@@ -37,7 +37,7 @@ const disabledMixpanel: MixpanelInstance = {
 export const useMixpanel = (): MixpanelInstance => {
   const pageContext = usePageContext()
 
-  const track = (event: MixpanelEvent, props?: Dict) => {
+  const track = (event: AnalyticsEvent, props?: Dict) => {
     mixpanelBrowser.track(event, {
       ...props,
       url: window.location.pathname,
