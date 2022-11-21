@@ -16,15 +16,11 @@ Inspiration from: [create-t3-app](https://github.com/t3-oss/create-t3-app)
 - Prisma, typescript bindings to talk to postgres
 - Database - Supabase (or any postgres db)
 - Clerk.dev for auth (sign up and sign in)
-- Mixpanel analytics (routed via a backend proxy)
-- Hotjar user tracking
+- Posthog / Mixpanel analytics (routed via a backend proxy)
+- Posthog screen recorindg user tracking
 
-Notes:
+### Notes:
 
 production server side code run by ts-node, this is apparently ok in production
 
-
-trpc - with superjson
-
-
-`svix listen http://localhost:3000/clerk-webhook-api`
+To test Clerk webhooks: `brew install svix && svix listen http://localhost:3000/clerk-webhook-api`
