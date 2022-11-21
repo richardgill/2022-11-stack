@@ -1,1 +1,1 @@
-export type MixpanelEvent = 'page viewed'
+export type AnalyticsEvent = 'page viewed'

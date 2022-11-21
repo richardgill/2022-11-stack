@@ -16,7 +16,7 @@ Inspiration from: [create-t3-app](https://github.com/t3-oss/create-t3-app)
 - Prisma, typescript bindings to talk to postgres
 - Database - Supabase (or any postgres db)
 - Clerk.dev for auth (sign up and sign in)
-- Mixpanel analytics
+- Mixpanel analytics (routed via a backend proxy)
 - Hotjar user tracking
 
 Notes:
