@@ -9,7 +9,6 @@ const navigation = [
   { name: 'Team', href: '#', current: false },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
 ]
 const userNavigation = [{ name: 'Sign out', href: '/sign-out' }]
 

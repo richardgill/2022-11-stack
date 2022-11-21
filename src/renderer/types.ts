@@ -15,6 +15,7 @@ export interface PageContextCustom {
   pageProps?: PageProps
   urlPathname: string
   auth: Auth
+  route: string
   redirectTo: string
   exports: {
     requiresAuth?: boolean

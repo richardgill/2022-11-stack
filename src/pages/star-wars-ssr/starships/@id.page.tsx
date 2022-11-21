@@ -42,3 +42,5 @@ export const Page: React.FC<{ starship: Starship }> = ({ starship }) => {
     </div>
   )
 }
+
+export const requiresAuth = false

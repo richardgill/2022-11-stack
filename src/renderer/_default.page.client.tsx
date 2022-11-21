@@ -1,10 +1,18 @@
 import { createRoot, hydrateRoot, Root } from 'react-dom/client'
 import { RootShell } from '~/components/shells/rootShell'
 import { getPageTitle } from '../utils/pageTitle'
+import { pageIdToRoute } from '~/utils/routing'
 import type { PageContextClient } from './types'
 
 let root: Root
-async function render(pageContext: PageContextClient) {
+async function render(originalPageContext: PageContextClient) {
+  const pageContext = {
+    ...originalPageContext,
+    route:
+      originalPageContext.route ??
+      // @ts-expect-error
+      pageIdToRoute(originalPageContext._pageId),
+  }
   const { Page, pageProps } = pageContext
   const page = (
     <RootShell pageContext={pageContext}>
@@ -26,7 +34,7 @@ async function render(pageContext: PageContextClient) {
   } else {
     root = hydrateRoot(container, page)
   }
-  document.title = getPageTitle(pageContext)
+  document.title = getPageTitle(originalPageContext)
 }
 
 // https://vite-plugin-ssr.com/clientRouting

@@ -5,6 +5,7 @@ import type { PageContext } from '~/renderer/types'
 import { PageContextProvider } from '~/renderer/usePageContext'
 import './style.css'
 import 'focus-visible'
+import { Analytics } from '~/components/analytics'
 
 export const RootShell: React.FC<{
   children: React.ReactNode
@@ -12,13 +13,14 @@ export const RootShell: React.FC<{
 }> = ({ children, pageContext }) => {
   return (
     <React.StrictMode>
-      <ClerkAuth pageContext={pageContext}>
-        <TrpcProvider>
-          <PageContextProvider pageContext={pageContext}>
+      <PageContextProvider pageContext={pageContext}>
+        <ClerkAuth pageContext={pageContext}>
+          <TrpcProvider>
             {children}
-          </PageContextProvider>
-        </TrpcProvider>
-      </ClerkAuth>
+            <Analytics />
+          </TrpcProvider>
+        </ClerkAuth>
+      </PageContextProvider>
     </React.StrictMode>
   )
 }

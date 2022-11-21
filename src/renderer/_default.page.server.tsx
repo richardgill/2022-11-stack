@@ -4,6 +4,7 @@ import { RootShell } from '~/components/shells/rootShell'
 import { doesRequireAuth } from '~/utils/auth'
 import { getPageTitle } from '~/utils/pageTitle'
 import logoUrl from './logo.svg'
+import { pageIdToRoute } from '~/utils/routing'
 import type { PageContextServer } from './types'
 
 // See https://vite-plugin-ssr.com/data-fetching
@@ -13,6 +14,8 @@ export const passToClient = [
   'documentProps',
   'requiresAuth',
   'auth',
+  'routeParams',
+  'route',
 ]
 
 async function render(pageContext: PageContextServer) {
@@ -64,6 +67,9 @@ async function render(pageContext: PageContextServer) {
     documentHtml,
     pageContext: {
       auth: pageContext.auth,
+      // @ts-expect-error
+      route: pageIdToRoute(pageContext._pageId),
+      routeParams: pageContext.routeParams,
       redirectTo:
         requiresAuth && !pageContext.auth?.sessionId
           ? `/sign-up?redirectUrl=${process.env.BASE_URL}${pageContext.urlPathname}`
@@ -72,14 +78,6 @@ async function render(pageContext: PageContextServer) {
     },
   }
 }
-
-// from: https://vite-plugin-ssr.com/clientRouting
-// The `onBeforeRender()` hook is called for the first page as well as upon page navigation.
-// (Whereas `render()` is called only for the first page.)
-// export const onBeforeRender = async () => {
-//   console.log('onBeforeRender', onBeforeRender)
-//   return {}
-// }
 
 export const doNotPrerender = false
 export { render }

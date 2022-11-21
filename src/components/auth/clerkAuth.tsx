@@ -47,9 +47,9 @@ export const ClerkAuth: React.FC<{
 // Hacked copyied version of useAuth from Clerk
 export const useAuth = () => {
   const pageContext = usePageContext()
+  const auth = useAuthClerk()
   // @ts-expect-error this is how to check we are client side render (needs to be === false to avoid undefined)
   if (pageContext.isHydration === false) {
-    const auth = useAuthClerk()
     return pick(
       auth,
       'isLoaded',
@@ -59,6 +59,17 @@ export const useAuth = () => {
       'actor',
       'signOut'
     )
+  }
+  // SSG build fails otherwise
+  if (!pageContext.auth) {
+    return {
+      isLoaded: false,
+      isSignedIn: undefined,
+      sessionId: undefined,
+      userId: undefined,
+      actor: null,
+      signOut: () => null,
+    }
   }
   const { sessionId, userId, actor } = pageContext.auth
   if (sessionId === undefined && userId === undefined) {

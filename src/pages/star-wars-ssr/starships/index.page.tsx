@@ -46,3 +46,4 @@ export const Page: React.FC<{ starships: Starship[] }> = ({ starships }) => {
 }
 
 export const doNotPrerender = true
+export const requiresAuth = false

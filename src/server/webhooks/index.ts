@@ -1,4 +1,3 @@
-// import * as bodyParser from 'body-parser'
 import express, { Express } from 'express'
 import { Webhook } from 'svix'
 import { handleWebhooks } from './handleWebhooks'
