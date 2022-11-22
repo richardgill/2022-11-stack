@@ -6,6 +6,7 @@ import { getPageTitle } from '~/utils/pageTitle'
 import logoUrl from './logo.svg'
 import { pageIdToRoute } from '~/utils/routing'
 import type { PageContextServer } from './types'
+import { baseUrl } from '~/utils/environmentVariables'
 
 // See https://vite-plugin-ssr.com/data-fetching
 export const passToClient = [
@@ -72,7 +73,7 @@ async function render(pageContext: PageContextServer) {
       routeParams: pageContext.routeParams,
       redirectTo:
         requiresAuth && !pageContext.auth?.sessionId
-          ? `/sign-up?redirectUrl=${process.env.BASE_URL}${pageContext.urlPathname}`
+          ? `/sign-up?redirectUrl=${baseUrl}${pageContext.urlPathname}`
           : undefined,
       // We can add some `pageContext` here, which is useful if we want to do page redirection https://vite-plugin-ssr.com/page-redirection
     },

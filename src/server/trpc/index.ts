@@ -7,6 +7,7 @@ import { stripe } from '~/server/utils/stripe'
 import { Auth, verifyToken } from './jwt'
 import { prisma } from '~/server/utils/prisma'
 import { clerkClient } from '@clerk/clerk-sdk-node'
+import { baseUrl } from '~/utils/environmentVariables'
 // created for each request
 const createContext = ({ req }: trpcExpress.CreateExpressContextOptions) => {
   return {
@@ -97,8 +98,8 @@ const appRouter = t.router({
           metadata: { userId: user.id },
         },
         mode: 'subscription',
-        success_url: `${process.env.BASE_URL}`,
-        cancel_url: `${process.env.BASE_URL}`,
+        success_url: baseUrl,
+        cancel_url: baseUrl,
       })
       return session.url
     }),
