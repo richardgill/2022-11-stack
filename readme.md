@@ -23,4 +23,5 @@ Inspiration from: [create-t3-app](https://github.com/t3-oss/create-t3-app)
 
 production server side code run by ts-node, this is apparently ok in production
 
-To test Clerk webhooks: `brew install svix && svix listen http://localhost:3000/clerk-webhook-api`
+To test Clerk webhooks: `brew install svix && svix listen http://localhost:3000/api/clerk-webhook`
+To test Stripe webhooks: `brew install stripe-cli && stripe listen --forward-to localhost:3000/api/stripe-webhook`

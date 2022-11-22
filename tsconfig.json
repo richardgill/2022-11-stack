@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "useUnknownInCatchVariables": false,
     "strict": true,
     "module": "ES2020",
     "moduleResolution": "Node",

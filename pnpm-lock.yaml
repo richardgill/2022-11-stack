@@ -62,6 +62,7 @@ specifiers:
   react-dom: ^18.1.0
   sirv: ^2.0.2
   sort-package-json: ^2.0.0
+  stripe: ^11.1.0
   superjson: ^1.11.0
   svix: ^0.70.0
   tailwindcss: ^3.2.4
@@ -105,6 +106,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   sirv: 2.0.2
   sort-package-json: 2.0.0
+  stripe: 11.1.0
   superjson: 1.11.0
   svix: 0.70.0
   ts-node: 10.9.1_ksn4eycaeggbrckn3ykh37hwf4
@@ -5855,6 +5857,14 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
     dev: true
+
+  /stripe/11.1.0:
+    resolution: {integrity: sha512-erOslPQZSYKOotQjmKRy4eBon/tdhzLIYzBdPSNVWDdatSQozkkPlh8mVeXNwubYYZYx61/yS23eWiGDF93z2w==}
+    engines: {node: '>=12.*'}
+    dependencies:
+      '@types/node': 17.0.45
+      qs: 6.11.0
+    dev: false
 
   /superjson/1.11.0:
     resolution: {integrity: sha512-6PfAg1FKhqkwWvPb2uXhH4MkMttdc17eJ91+Aoz4s1XUEDZFmLfFx/xVA3wgkPxAGy5dpozgGdK6V/n20Wj9yg==}

@@ -55,6 +55,7 @@
     "react-dom": "^18.1.0",
     "sirv": "^2.0.2",
     "sort-package-json": "^2.0.0",
+    "stripe": "^11.1.0",
     "superjson": "^1.11.0",
     "svix": "^0.70.0",
     "ts-node": "^10.7.0",

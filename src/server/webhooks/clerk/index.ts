@@ -2,17 +2,17 @@ import express, { Express } from 'express'
 import { Webhook } from 'svix'
 import { handleWebhooks } from './handleWebhooks'
 
-export const configureWebhooks = (app: Express) => {
+export const configureClerkWebhooks = (app: Express) => {
   if (!process.env.CLERK_WEBHOOK_SECRET) {
     throw new Error('CLERK_WEBHOOK_SECRET not set')
   }
   const webhook = new Webhook(process.env.CLERK_WEBHOOK_SECRET ?? '')
 
   app.post(
-    '/clerk-webhook-api',
+    '/api/clerk-webhook',
     express.raw({ type: 'application/json' }),
     async (req, res) => {
-      console.log('received webhook')
+      console.log('received Clerk webhook')
       const payload = req.body.toString()
       const headers = {
         'svix-id': String(req.headers['svix-id']),

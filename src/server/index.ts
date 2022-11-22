@@ -3,13 +3,15 @@ import express from 'express'
 import { configureWeb } from '~/server/web'
 import { configureAnalyticsProxy } from './analytics'
 import { configureTrpc } from './trpc'
-import { configureWebhooks } from './webhooks'
+import { configureClerkWebhooks } from './webhooks/clerk'
+import { configureStripeWebhooks } from './webhooks/stripe'
 
 const startServer = async (): Promise<void> => {
   let app = express()
 
   app = configureAnalyticsProxy(app)
-  app = configureWebhooks(app)
+  app = configureClerkWebhooks(app)
+  app = configureStripeWebhooks(app)
   app = configureTrpc(app)
   app = await configureWeb(app)
 

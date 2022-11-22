@@ -15,10 +15,20 @@ model dogs {
 }
 
 model User {
-  id           BigInt   @id(map: "users_pkey") @default(autoincrement())
-  createdAt    DateTime @db.Timestamp(6)
+  createdAt    DateTime       @db.Timestamp(6)
+  id           String         @id
   email        String
-  updatedAt    DateTime @db.Timestamp(6)
+  updatedAt    DateTime       @db.Timestamp(6)
   profileImage String?
-  userId       String   @unique(map: "users_userId_key")
+  Subscription Subscription[]
+}
+
+model Subscription {
+  createdAt  DateTime @db.Timestamp(6)
+  id         String   @id @unique(map: "Subscription_subscriptionId_key")
+  userId     String
+  updatedAt  DateTime @default(now()) @db.Timestamp(6)
+  customerId String
+  isActive   Boolean
+  User       User     @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }

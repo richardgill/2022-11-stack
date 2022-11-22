@@ -27,6 +27,14 @@ interface ClerkAuth {
   sub: string
 }
 
+export interface Auth {
+  url: string
+  expiry: number
+  sessionId: string
+  userId: string
+  status: 'authenticated'
+}
+
 export const verifyToken = (accessToken?: string) => {
   try {
     const auth = jwt.verify(accessToken ?? '', jwtToken) as ClerkAuth

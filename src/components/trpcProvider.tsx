@@ -13,7 +13,7 @@ const trpcClient = (getToken: GetToken) =>
     transformer: superjson,
     links: [
       httpBatchLink({
-        url: '/trpc-api',
+        url: '/api/trpc',
         headers: async () => {
           const token = await getToken()
           return token ? { authorization: token } : {}

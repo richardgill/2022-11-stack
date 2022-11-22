@@ -1,12 +1,12 @@
-import { PrismaClient } from '@prisma/client'
 import { inferAsyncReturnType, initTRPC, TRPCError } from '@trpc/server'
 import * as trpcExpress from '@trpc/server/adapters/express'
 import { Express } from 'express'
 import superjson from 'superjson'
 import { z } from 'zod'
-import { verifyToken } from './jwt'
-const prisma = new PrismaClient()
-
+import { stripe } from '~/server/utils/stripe'
+import { Auth, verifyToken } from './jwt'
+import { prisma } from '~/server/utils/prisma'
+import { clerkClient } from '@clerk/clerk-sdk-node'
 // created for each request
 const createContext = ({ req }: trpcExpress.CreateExpressContextOptions) => {
   return {
@@ -36,7 +36,7 @@ const isAuthed = t.middleware(({ next, ctx }) => {
   }
   return next({
     ctx: {
-      auth: ctx.auth,
+      auth: ctx.auth as Auth,
     },
   })
 })
@@ -65,8 +65,6 @@ const appRouter = t.router({
   }),
   dogs: t.router({
     getAll: authedProcedure.query(async ({ ctx }) => {
-      const userId = ctx.auth.userId
-      console.log('userId', userId)
       const dogs = await prisma.dogs.findMany()
       return dogs.map((dog) => ({
         id: dog.id,
@@ -82,11 +80,34 @@ const appRouter = t.router({
         return dog
       }),
   }),
+  payments: t.router({
+    createCheckoutSession: authedProcedure.mutation(async ({ ctx }) => {
+      const userId = ctx.auth.userId
+      const user = await clerkClient.users.getUser(userId)
+
+      const session = await stripe.checkout.sessions.create({
+        line_items: [
+          {
+            price: process.env.STRIPE_PRICE_ID,
+            quantity: 1,
+          },
+        ],
+        customer_email: user.emailAddresses[0].emailAddress ?? undefined,
+        subscription_data: {
+          metadata: { userId: user.id },
+        },
+        mode: 'subscription',
+        success_url: `${process.env.BASE_URL}`,
+        cancel_url: `${process.env.BASE_URL}`,
+      })
+      return session.url
+    }),
+  }),
 })
 
 export const configureTrpc = (app: Express) => {
   app.use(
-    '/trpc-api/',
+    '/api/trpc',
     trpcExpress.createExpressMiddleware({
       router: appRouter,
       createContext,
