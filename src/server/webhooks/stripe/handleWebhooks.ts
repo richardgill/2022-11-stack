@@ -13,7 +13,7 @@ const subscriptionToDb = (subscription: Stripe.Subscription) => {
   return {
     id: subscription.id,
     createdAt: new Date(subscription.created),
-    isActive: true,
+    isActive: ['active', 'trialing'].includes(subscription.status),
     userId,
     customerId,
   }
