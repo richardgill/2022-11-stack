@@ -17,7 +17,7 @@ Inspiration from: [create-t3-app](https://github.com/t3-oss/create-t3-app)
 - Database - Supabase (or any postgres db)
 - Clerk.dev for auth (sign up and sign in)
 - Posthog / Mixpanel analytics (routed via a backend proxy)
-- Posthog screen recorindg user tracking
+- Posthog screen recording user tracking
 
 ### Notes:
 
