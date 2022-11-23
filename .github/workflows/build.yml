@@ -39,5 +39,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run CI
+      - name: Run root CI
         run: pnpm ci
+
+      - name: Run webserver CI
+        run: pnpm ci
+        working-directory: packages/webserver
+
+
+
