@@ -46,7 +46,7 @@ const isPaidUser = t.middleware(async ({ next, ctx }) => {
   const subscription = await prisma.subscription.findFirst({
     where: { userId: ctx.auth.userId ?? undefined },
   })
-  if (!subscription || !subscription.isActive) {
+  if (!subscription?.isActive) {
     throw new TRPCError({ code: 'UNAUTHORIZED' })
   }
   return next({

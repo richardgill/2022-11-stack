@@ -20,7 +20,7 @@ export const Waitlist = () => {
           </h2>
         </div>
         {isSuccess && (
-          <div className="mt-12 font-display text-3xl text-green-500 sm:text-3xl md:text-center">
+          <div className="font-display mt-12 text-3xl text-green-500 sm:text-3xl md:text-center">
             <CheckCircleIcon className="-mt-1 mr-1 inline-block h-10 w-10" />
             {"You're on the waitlist"}
           </div>
