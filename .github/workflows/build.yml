@@ -43,8 +43,7 @@ jobs:
         run: pnpm ci
 
       - name: Run webserver CI
-        run: pnpm ci
-        working-directory: packages/webserver
+        run: pnpm exec nx run webserver:ci
 
 
 
