@@ -1,4 +1,3 @@
-import { LinkButton } from '~/components/button'
 import { Container } from '~/components/container'
 
 export const Hero = () => {
@@ -24,7 +23,7 @@ export const Hero = () => {
         opposite trade-off, and hope you don’t get audited.
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
-        <LinkButton href="/sign-up">Get 6 months free</LinkButton>
+        {/* <LinkButton href="/sign-up">Get 6 months free</LinkButton>
         <LinkButton
           href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
           variant="outline"
@@ -36,7 +35,7 @@ export const Hero = () => {
             <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
           </svg>
           <span className="ml-3">Watch video</span>
-        </LinkButton>
+        </LinkButton> */}
       </div>
     </Container>
   )

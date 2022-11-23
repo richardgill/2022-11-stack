@@ -15,6 +15,8 @@ export const variantStyles = {
     blue: 'bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600',
     white:
       'bg-white text-slate-900 hover:bg-blue-50 active:bg-blue-200 active:text-slate-600 focus-visible:outline-white',
+    green:
+      'bg-green-400 text-white hover:text-slate-100 hover:bg-green-300 active:bg-green-600 active:text-green-100 focus-visible:outline-green-400',
   },
   outline: {
     slate:
@@ -22,13 +24,15 @@ export const variantStyles = {
     blue: 'bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600',
     white:
       'ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white',
+    green:
+      'bg-green-600 text-white hover:text-slate-100 hover:bg-green-500 active:bg-green-800 active:text-green-100 focus-visible:outline-green-600',
   },
 }
 type Variants = 'solid' | 'outline'
-type Colors = 'slate' | 'blue' | 'white'
+type Colors = 'slate' | 'blue' | 'white' | 'green'
 interface ButtonProps {
   variant?: Variants
-  color?: 'slate' | 'blue' | 'white'
+  color?: Colors
   className?: string
 }
 

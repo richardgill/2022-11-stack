@@ -57,6 +57,12 @@ export const authedProcedure = t.procedure.use(isAuthed)
 export const paidProcedure = authedProcedure.use(isPaidUser)
 
 const appRouter = t.router({
+  waitlist: t.router({
+    join: t.procedure.input(z.string().email()).mutation(async (request) => {
+      const email = request.input
+      await prisma.waitlist.create({ data: { email } })
+    }),
+  }),
   users: t.router({
     getById: t.procedure.input(z.string()).query((req) => {
       const input = req.input
