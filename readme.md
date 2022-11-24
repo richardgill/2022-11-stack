@@ -2,7 +2,10 @@
 
 - Use `fnm` to manage node versions
 - Install `pnpm` as package manager
-- Run `fnm use && pnpm install && pnpm exec nx run webserver:dev` to get going
+- Run `fnm use && pnpm install` to get setup
+- Then run one of:
+  - `pnpm exec nx run webserver:dev`
+  - `pnpm exec nx run desktop:dev`
 
 # Stack
 
