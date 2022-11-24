@@ -4,10 +4,11 @@
   "private": true,
   "homepage": "https://something.com",
   "license": "MIT",
-  "author": "Author",
+  "author": "Author <email@author.com>",
   "main": "dist-electron/src/electron/main/index.js",
   "scripts": {
     "build": "tsc && vite build && electron-builder",
+    "build-all": "pnpm build -mwl",
     "dev": "vite"
   },
   "dependencies": {},
@@ -33,5 +34,6 @@
       "VITE_DEV_SERVER_URL": "http://127.0.0.1:7777"
     }
   },
+  "email": "email@author.com",
   "productName": "Electron"
 }

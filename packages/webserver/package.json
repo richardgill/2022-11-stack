@@ -3,12 +3,12 @@
     "~/*": "./*.ts"
   },
   "scripts": {
-    "build": "vite build && pnpm prisma:generate",
-    "ci": "pnpm prisma:generate && tsc --noEmit && sort-package-json package.json --check && pnpm test",
+    "build": "vite build && pnpm prisma-generate",
+    "ci": "pnpm prisma-generate && tsc --noEmit && sort-package-json package.json --check && pnpm test",
     "dev": "ts-node-dev -r tsconfig-paths/register ./src/server/index.ts",
-    "prisma:generate": "prisma generate",
-    "prisma:pull": "prisma db pull",
-    "server:prod": "cross-env NODE_ENV=production ts-node ./src/server",
+    "prisma-generate": "prisma generate",
+    "prisma-pull": "prisma db pull",
+    "server-prod": "cross-env NODE_ENV=production ts-node ./src/server",
     "test": "jest"
   },
   "dependencies": {
