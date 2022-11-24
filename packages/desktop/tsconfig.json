@@ -4,7 +4,8 @@
     "baseUrl": "./",
     "paths": {
       "~/*": ["src/react/*"]
-    }
+    },
+    "noEmit": true
   },
   "include": ["src/react"],
   "exclude": ["src/electron"],
