@@ -46,7 +46,7 @@ jobs:
         run: pnpm exec nx run webserver:ci
 
       - name: Run desktop CI
-        run: pnpm exec nx run desktop:build -l
+        run: pnpm exec nx run desktop:build
 
 
 
