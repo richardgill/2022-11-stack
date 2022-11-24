@@ -4,7 +4,7 @@
 - Install `pnpm` as package manager
 - Run `fnm use && pnpm install` to get setup
 - Then run one of:
-  - `pnpm exec nx run webserver:dev`
+  - `pnpm exec nx run web:dev`
   - `pnpm exec nx run desktop:dev`
 
 # Stack
