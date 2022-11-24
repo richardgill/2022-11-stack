@@ -44,7 +44,6 @@ export interface Auth {
 export const verifyToken = (accessToken?: string) => {
   try {
     const auth = jwt.verify(accessToken ?? '', jwtToken) as ClerkAuth
-    console.log('auth', auth)
     return {
       url: auth.azp,
       expiry: auth.exp,
