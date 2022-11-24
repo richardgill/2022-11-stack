@@ -50,6 +50,7 @@ importers:
       react: ^18.2.0
       react-dom: ^18.2.0
       sass: ^1.55.0
+      shared: workspace:*
       typescript: ^4.9.3
       vite: ^3.2.2
       vite-electron-plugin: ^0.5.2
@@ -63,10 +64,20 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       sass: 1.56.1
+      shared: link:../shared
       typescript: 4.9.3
       vite: 3.2.4_sass@1.56.1
       vite-electron-plugin: 0.5.2
       vite-plugin-electron-renderer: 0.11.3
+
+  packages/shared:
+    specifiers:
+      '@types/lodash': ^4.14.190
+      lodash: ^4.17.21
+    dependencies:
+      lodash: 4.17.21
+    devDependencies:
+      '@types/lodash': 4.14.190
 
   packages/web:
     specifiers:
@@ -114,6 +125,7 @@ importers:
       query-string: ^7.1.1
       react: ^18.2.0
       react-dom: ^18.2.0
+      shared: workspace:*
       sirv: ^2.0.2
       stripe: ^11.1.0
       superjson: ^1.11.0
@@ -155,6 +167,7 @@ importers:
       query-string: 7.1.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      shared: link:../shared
       sirv: 2.0.2
       stripe: 11.1.0
       superjson: 1.11.0
@@ -1469,6 +1482,10 @@ packages:
 
   /@types/lodash/4.14.189:
     resolution: {integrity: sha512-kb9/98N6X8gyME9Cf7YaqIMvYGnBSWqEci6tiettE6iJWH1XdJz/PO8LB0GtLCG7x8dU3KWhZT+lA1a35127tA==}
+    dev: true
+
+  /@types/lodash/4.14.190:
+    resolution: {integrity: sha512-5iJ3FBJBvQHQ8sFhEhJfjUP+G+LalhavTkYyrAYqz5MEJG+erSv0k9KJLb6q7++17Lafk1scaTIFXcMJlwK8Mw==}
     dev: true
 
   /@types/mime/3.0.1:

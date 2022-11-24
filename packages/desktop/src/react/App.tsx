@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import styles from './styles/app.module.scss'
+import { isEven } from 'shared/src/isEven'
+import { rando } from 'shared/src/random'
 
 const App: React.FC = () => {
   const [count, setCount] = useState(0)
@@ -28,7 +30,9 @@ const App: React.FC = () => {
             />
           </div>
         </div>
-        <p>Hello Electron + Vite + React!</p>
+        <p>
+          Hello Electron + Vite + React! {isEven(0)} {rando()}
+        </p>
         <p>
           <button onClick={() => setCount((count) => count + 1)}>
             count is: {count}
