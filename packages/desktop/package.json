@@ -2,7 +2,9 @@
   "name": "desktop",
   "version": "0.0.1",
   "private": true,
+  "homepage": "https://something.com",
   "license": "MIT",
+  "author": "Author",
   "main": "dist-electron/src/electron/main/index.js",
   "scripts": {
     "build": "tsc && vite build && electron-builder",
