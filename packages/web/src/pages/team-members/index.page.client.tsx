@@ -7,7 +7,6 @@ import { DashboardShell } from '~/components/layouts/dashboardLayout'
 
 export const Page = () => {
   const organization = useOrganization()
-  console.log('organization', organization)
   return (
     <DashboardShell>
       {!organization.isLoaded && <div>Loading...</div>}
