@@ -86,6 +86,7 @@ const appRouter = t.router({
   }),
   dogs: t.router({
     getAll: paidProcedure.query(async ({ ctx }) => {
+      console.log('ctx', ctx)
       const dogs = await prisma.dogs.findMany()
       return dogs.map((dog) => ({
         id: dog.id,

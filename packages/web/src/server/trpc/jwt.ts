@@ -25,6 +25,9 @@ interface ClerkAuth {
   nbf: number
   sid: string
   sub: string
+  org_id?: string
+  org_role?: 'admin' | 'member'
+  org_slug: string | null
 }
 
 export interface Auth {
@@ -32,17 +35,24 @@ export interface Auth {
   expiry: number
   sessionId: string
   userId: string
+  orgId?: string
+  orgRole?: 'admin' | 'member'
+  orgSlug: string | null
   status: 'authenticated'
 }
 
 export const verifyToken = (accessToken?: string) => {
   try {
     const auth = jwt.verify(accessToken ?? '', jwtToken) as ClerkAuth
+    console.log('auth', auth)
     return {
       url: auth.azp,
       expiry: auth.exp,
       sessionId: auth.sid,
       userId: auth.sub,
+      orgId: auth.org_id,
+      orgRole: auth.org_role,
+      orgSlug: auth.org_slug,
       status: 'authenticated',
     }
   } catch (error) {
@@ -51,6 +61,9 @@ export const verifyToken = (accessToken?: string) => {
       expiry: null,
       sessionId: null,
       userId: null,
+      orgId: null,
+      orgRole: null,
+      orgSlug: null,
       status: 'unauthenticated',
     }
   }

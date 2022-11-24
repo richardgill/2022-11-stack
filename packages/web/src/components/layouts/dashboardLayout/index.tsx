@@ -10,7 +10,10 @@ const navigation = [
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
 ]
-const userNavigation = [{ name: 'Sign out', href: '/sign-out' }]
+const userNavigation = [
+  { name: 'Team Members', href: '/team-members' },
+  { name: 'Sign out', href: '/sign-out' },
+]
 
 export const DashboardShell: React.FC<{ children: ReactNode }> = ({
   children,
