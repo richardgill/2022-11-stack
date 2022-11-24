@@ -30,8 +30,8 @@ const App: React.FC = () => {
             />
           </div>
         </div>
-        <p>
-          Hello Electron + Vite + React! {isEven(0)} {rando()}
+        <p className="text-4xl text-pink-500">
+          Hello Electron + Vite + React! {isEven(1) ? 'even' : 'odd'} {rando()}
         </p>
         <p>
           <button onClick={() => setCount((count) => count + 1)}>
