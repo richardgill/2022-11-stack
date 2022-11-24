@@ -8,7 +8,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./packages/*/tsconfig.json'],
+    project: ['./packages/*/tsconfig*.json'],
   },
   plugins: ['react'],
   rules: {
@@ -22,5 +22,10 @@ module.exports = {
     '@typescript-eslint/promise-function-async': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 }

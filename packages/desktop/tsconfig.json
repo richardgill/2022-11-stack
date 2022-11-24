@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.react.base.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["src/react/*"]
+    }
+  },
+  "include": ["src/react"],
+  "exclude": ["src/electron"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
