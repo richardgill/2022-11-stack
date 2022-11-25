@@ -19,3 +19,4 @@ export const Page = () => {
 }
 
 export const requiresAuth = true
+export const documentProps = { title: 'Payment' }
