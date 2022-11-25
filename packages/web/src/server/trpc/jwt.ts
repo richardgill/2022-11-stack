@@ -2,10 +2,10 @@ import jwt from 'jsonwebtoken'
 
 // https://clerk.dev/docs/request-authentication/validate-session-tokens#using-the-jwt-verification-key
 const getJwtToken = () => {
-  if (!process.env.JWT_SECRET) {
-    throw new Error(' JWT_SECRET not set')
+  if (!process.env.CLERK_JWT_KEY) {
+    throw new Error('CLERK_JWT_KEY not set')
   }
-  const splitPem = process.env.JWT_SECRET.match(/.{1,64}/g)
+  const splitPem = process.env.CLERK_JWT_KEY.match(/.{1,64}/g)
   if (!splitPem) {
     throw new Error('splitPem was null')
   }
