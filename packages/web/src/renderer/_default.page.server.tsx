@@ -3,7 +3,6 @@ import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr'
 import { RootShell } from '~/components/layouts/rootLayout'
 import { doesRequireAuth } from '~/utils/auth'
 import { getPageTitle } from '~/utils/pageTitle'
-import logoUrl from './logo.svg'
 import { pageIdToRoute } from '~/utils/routing'
 import type { PageContextServer } from './types'
 import { baseUrl } from '~/utils/environmentVariables'
@@ -41,7 +40,7 @@ async function render(pageContext: PageContextServer) {
  lang="en">
       <head>
         <meta charset="UTF-8" />
-        <link rel="icon" href="${logoUrl}" />
+        <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
