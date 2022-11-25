@@ -12,7 +12,7 @@ const subscriptionToDb = (subscription: Stripe.Subscription) => {
   }
   return {
     id: subscription.id,
-    createdAt: new Date(subscription.created),
+    createdAt: new Date(subscription.created * 1000),
     isActive: ['active', 'trialing'].includes(subscription.status),
     userId,
     customerId,
