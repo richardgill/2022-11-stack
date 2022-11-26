@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 import { LinkButton } from '~/components/button'
 import { Container } from '~/components/container'
-import { Logo } from '~/components/logo'
+import { Logo } from '~/components/logos'
 import { NavLink } from '~/components/navLink'
 
 const MobileNavLink: React.FC<{ href?: string; children: ReactNode }> = ({

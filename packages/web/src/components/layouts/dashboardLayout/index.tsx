@@ -3,12 +3,13 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline/index'
 import clsx from 'clsx'
 import { useUser } from '@clerk/clerk-react'
+import { MarkInverted } from '~/components/logos'
+import { Link } from '~/components/link'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Insights', href: '/' },
+  { name: 'Actions', href: '/actions' },
+  { name: 'Link Actions', href: '/link-actions' },
 ]
 const userNavigation = [
   { name: 'Team Members', href: '/team-members' },
@@ -37,28 +38,25 @@ export const DashboardShell: React.FC<{ children: ReactNode }> = ({
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=blue&shade=300"
-                        alt="Your Company"
-                      />
+                      <Link href="/">
+                        <div className="-ml-4 p-4">
+                          <MarkInverted className="h-8 w-8" />
+                        </div>
+                      </Link>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
-                          <a
+                          <Link
                             key={item.name}
                             href={item.href}
+                            activeClassName="bg-blue-700 text-white"
                             className={clsx(
-                              item.current
-                                ? 'bg-blue-700 text-white'
-                                : 'text-white hover:bg-blue-500 hover:bg-opacity-75',
-                              'rounded-md px-3 py-2 text-sm font-medium'
+                              'rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-blue-500 hover:bg-opacity-75'
                             )}
-                            aria-current={item.current ? 'page' : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -133,15 +131,12 @@ export const DashboardShell: React.FC<{ children: ReactNode }> = ({
                   {navigation.map((item) => (
                     <Disclosure.Button
                       key={item.name}
-                      as="a"
+                      as={Link}
                       href={item.href}
-                      className={clsx(
-                        item.current
-                          ? 'bg-blue-700 text-white'
-                          : 'text-white hover:bg-blue-500 hover:bg-opacity-75',
-                        'block rounded-md px-3 py-2 text-base font-medium'
-                      )}
-                      aria-current={item.current ? 'page' : undefined}
+                      activeClassName="bg-blue-700 text-white"
+                      className={
+                        'block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-blue-500 hover:bg-opacity-75'
+                      }
                     >
                       {item.name}
                     </Disclosure.Button>

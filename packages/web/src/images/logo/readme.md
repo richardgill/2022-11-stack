@@ -1,0 +1,3 @@
+- Open prodbacklogoOriginal.svg in inkscape
+- turn the text into paths: paths -> object to paths
+- optimize it: https://svgoptimizer.com/
