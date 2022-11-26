@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import backgroundImage from '~/images/background-auth.jpg'
 import { Link } from '~/components/link'
-import { Logo } from '~/components/logo'
+import { Logo } from '~/components/logos'
 
 export const AuthLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
