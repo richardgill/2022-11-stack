@@ -8,7 +8,7 @@ interface PageProps {}
 type Auth = Pick<
   LooseAuthProp['auth'],
   'sessionId' | 'userId' | 'actor' | 'claims'
->
+> & { isAdmin: boolean }
 
 export interface PageContextCustom {
   Page: Page
@@ -19,6 +19,7 @@ export interface PageContextCustom {
   redirectTo: string
   exports: {
     requiresAuth?: boolean
+    requiresAdmin?: boolean
     documentProps?: {
       title?: string
       description?: string

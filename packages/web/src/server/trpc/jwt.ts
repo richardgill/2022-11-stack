@@ -28,6 +28,8 @@ interface ClerkAuth {
   org_id?: string
   org_role?: 'admin' | 'member'
   org_slug: string | null
+  // custom
+  isAdmin?: boolean
 }
 
 export interface Auth {
@@ -39,6 +41,7 @@ export interface Auth {
   orgRole?: 'admin' | 'member'
   orgSlug: string | null
   status: 'authenticated'
+  isAdmin: boolean
 }
 
 export const verifyToken = (accessToken?: string) => {
@@ -52,6 +55,7 @@ export const verifyToken = (accessToken?: string) => {
       orgId: auth.org_id,
       orgRole: auth.org_role,
       orgSlug: auth.org_slug,
+      isAdmin: Boolean(auth.isAdmin),
       status: 'authenticated',
     }
   } catch (error) {
@@ -63,6 +67,7 @@ export const verifyToken = (accessToken?: string) => {
       orgId: null,
       orgRole: null,
       orgSlug: null,
+      isAdmin: null,
       status: 'unauthenticated',
     }
   }

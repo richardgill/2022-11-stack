@@ -9,12 +9,11 @@ export interface LinkProps {
   activeClassName?: string
 }
 
-export const Link: React.FC<LinkProps> = (props) => {
+export const Link: React.FC<LinkProps> = ({ activeClassName, ...props }) => {
   const pageContext = usePageContext()
   const className = twMerge([
     props.className,
-    pageContext.urlPathname === props.href &&
-      (props.activeClassName ?? 'is-active'),
+    pageContext.urlPathname === props.href && (activeClassName ?? 'is-active'),
   ])
 
   return <a {...props} className={className} />

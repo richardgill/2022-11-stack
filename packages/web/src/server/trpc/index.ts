@@ -42,6 +42,17 @@ const isAuthed = t.middleware(({ next, ctx }) => {
   })
 })
 
+const isAdmin = t.middleware(({ next, ctx }) => {
+  if (!ctx.auth?.isAdmin) {
+    throw new TRPCError({ code: 'UNAUTHORIZED' })
+  }
+  return next({
+    ctx: {
+      auth: ctx.auth as Auth,
+    },
+  })
+})
+
 const isPaidUser = t.middleware(async ({ next, ctx }) => {
   const subscription = await prisma.subscription.findFirst({
     where: { userId: ctx.auth.userId ?? undefined },
@@ -54,6 +65,7 @@ const isPaidUser = t.middleware(async ({ next, ctx }) => {
   })
 })
 export const authedProcedure = t.procedure.use(isAuthed)
+export const adminProcedure = t.procedure.use(isAuthed).use(isAdmin)
 export const paidProcedure = authedProcedure.use(isPaidUser)
 
 const appRouter = t.router({
@@ -100,6 +112,11 @@ const appRouter = t.router({
         const dog = await prisma.dogs.create({ data: newDog })
         return dog
       }),
+  }),
+  admin: t.router({
+    getAdminStuff: adminProcedure.query(async () => {
+      return { adminStuff: 'yes!' }
+    }),
   }),
   payments: t.router({
     createCheckoutSession: authedProcedure.mutation(async ({ ctx }) => {
