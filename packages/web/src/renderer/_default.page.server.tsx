@@ -1,10 +1,10 @@
 import ReactDOMServer from 'react-dom/server'
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr'
 import { RootShell } from '~/components/layouts/rootLayout'
-import { doesRequireAuth } from '~/utils/auth'
+import { doesRequireAdmin, doesRequireAuth } from '~/utils/auth'
 import { getPageTitle } from '~/utils/pageTitle'
 import { pageIdToRoute } from '~/utils/routing'
-import type { PageContextServer } from './types'
+import type { PageContext, PageContextServer } from './types'
 import { baseUrl } from '~/utils/environmentVariables'
 
 // See https://vite-plugin-ssr.com/data-fetching
@@ -17,6 +17,20 @@ export const passToClient = [
   'routeParams',
   'route',
 ]
+
+const getRedirect = (
+  pageContext: PageContext,
+  isSSR: boolean
+): string | undefined => {
+  const requiresAuth = doesRequireAuth(pageContext) && isSSR // client only pages pass through this code without the `requiresAuth` export :shrug:
+  const requiresAdmin = doesRequireAdmin(pageContext) && isSSR // client only pages pass through this code without the `requiresAuth` export :shrug:
+  if (requiresAuth && !pageContext.auth?.sessionId) {
+    return `/sign-up?redirectUrl=${baseUrl}${pageContext.urlPathname}`
+  } else if (requiresAdmin && !pageContext.auth?.isAdmin) {
+    return '/'
+  }
+  return undefined
+}
 
 async function render(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext
@@ -62,7 +76,6 @@ async function render(pageContext: PageContextServer) {
       </body>
     </html>`
 
-  const requiresAuth = doesRequireAuth(pageContext) && isSSR // client only pages pass through this code without the `requiresAuth` export :shrug:
   return {
     documentHtml,
     pageContext: {
@@ -70,10 +83,7 @@ async function render(pageContext: PageContextServer) {
       // @ts-expect-error
       route: pageIdToRoute(pageContext._pageId),
       routeParams: pageContext.routeParams,
-      redirectTo:
-        requiresAuth && !pageContext.auth?.sessionId
-          ? `/sign-up?redirectUrl=${baseUrl}${pageContext.urlPathname}`
-          : undefined,
+      redirectTo: getRedirect(pageContext, isSSR),
       // We can add some `pageContext` here, which is useful if we want to do page redirection https://vite-plugin-ssr.com/page-redirection
     },
   }

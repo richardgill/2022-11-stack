@@ -4,6 +4,9 @@ import { PageContext } from '~/renderer/types'
 export const doesRequireAuth = (pageContext: PageContext) =>
   [true, undefined].includes(pageContext.exports.requiresAuth)
 
+export const doesRequireAdmin = (pageContext: PageContext) =>
+  pageContext.exports.requiresAdmin
+
 export const clerkApperance = {
   elements: {
     card: 'shadow-none p-0 m-0 mt-20',

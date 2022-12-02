@@ -1,4 +1,4 @@
-import { ClerkExpressWithAuth, WithAuthProp } from '@clerk/clerk-sdk-node'
+import { ClerkExpressWithAuth, LooseAuthProp } from '@clerk/clerk-sdk-node'
 import compression from 'compression'
 import { Express, Request } from 'express'
 import { pick } from 'lodash'
@@ -8,6 +8,10 @@ import { PageContextInit } from '~/renderer/types'
 const isProduction = process.env.NODE_ENV === 'production'
 const root = path.join(__dirname, '..', '..')
 
+interface CustomClaims {
+  isAdmin?: boolean | string
+}
+type WithAuthProp<T> = T & { auth: LooseAuthProp['auth'] & CustomClaims }
 export const configureWeb = async (app: Express) => {
   app.use(compression())
   if (isProduction) {
@@ -29,9 +33,13 @@ export const configureWeb = async (app: Express) => {
     // @ts-expect-error
     ClerkExpressWithAuth(),
     async (req: WithAuthProp<Request>, res, next) => {
+      const auth = {
+        ...pick(req.auth, 'sessionId', 'userId', 'actor', 'claims'),
+        isAdmin: Boolean(req.auth?.claims?.isAdmin),
+      }
       const pageContextInit: PageContextInit = {
         urlOriginal: req.originalUrl,
-        auth: pick(req.auth, 'sessionId', 'userId', 'actor', 'claims'),
+        auth,
         redirectTo: undefined,
       }
       const pageContext = await renderPage(pageContextInit)
