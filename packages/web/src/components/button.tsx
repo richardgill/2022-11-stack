@@ -54,12 +54,18 @@ export const Button: React.FC<
   )
 }
 
-export const LinkButton: React.FC<
-  ButtonProps & { href: string } & LinkProps
-> = ({ variant = 'solid', color = 'slate', className, href, ...props }) => {
+export const LinkButton: React.FC<ButtonProps & LinkProps> = ({
+  variant = 'solid',
+  color = 'slate',
+  className,
+  href,
+  target,
+  ...props
+}) => {
   return (
     <Link
       href={href}
+      target={target}
       className={classesForButton(variant, color, className)}
       {...props}
     />
