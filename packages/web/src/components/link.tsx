@@ -2,12 +2,10 @@ import React from 'react'
 import { twMerge } from 'tailwind-merge'
 import { usePageContext } from '../renderer/usePageContext'
 
-export interface LinkProps {
-  href?: string
+export type LinkProps = {
   className?: string
-  children: React.ReactNode
   activeClassName?: string
-}
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>
 
 export const Link: React.FC<LinkProps> = ({ activeClassName, ...props }) => {
   const pageContext = usePageContext()
