@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react'
 import path from 'path'
-import { UserConfig } from 'vite'
+import { type UserConfig } from 'vite'
 import ssr from 'vite-plugin-ssr/plugin'
 
 const config: UserConfig = {
