@@ -1,5 +1,5 @@
-import { Link, LinkProps } from '~/components/link'
 import clsx from 'clsx'
+import { Link, type LinkProps } from '~/components/link'
 
 const baseStyles = {
   solid:

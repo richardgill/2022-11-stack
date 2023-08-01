@@ -1,5 +1,5 @@
 import { useAuth } from '@clerk/clerk-react'
-import { GetToken } from '@clerk/types'
+import { type GetToken } from '@clerk/types'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { httpBatchLink } from '@trpc/client'
 import React from 'react'

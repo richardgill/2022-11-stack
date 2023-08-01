@@ -1,7 +1,7 @@
-import { AuthLayout } from './authLayout'
 import { SignIn as ClerkSignIn } from '@clerk/clerk-react'
 import { clerkApperance } from '~/utils/auth'
 import { getQueryParameterString } from '~/utils/routing'
+import { AuthLayout } from './authLayout'
 
 export const SignIn = () => (
   <AuthLayout>

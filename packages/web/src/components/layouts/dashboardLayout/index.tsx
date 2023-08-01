@@ -1,10 +1,10 @@
-import { Fragment, ReactNode } from 'react'
+import { useUser } from '@clerk/clerk-react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline/index'
 import clsx from 'clsx'
-import { useUser } from '@clerk/clerk-react'
-import { MarkInverted } from '~/components/logos'
+import { Fragment, type ReactNode } from 'react'
 import { Link } from '~/components/link'
+import { MarkInverted } from '~/components/logos'
 
 const navigation = [
   { name: 'Insights', href: '/' },
@@ -127,7 +127,7 @@ export const DashboardShell: React.FC<{ children: ReactNode }> = ({
               </div>
 
               <Disclosure.Panel className="md:hidden">
-                <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+                <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
                   {navigation.map((item) => (
                     <Disclosure.Button
                       key={item.name}
@@ -142,7 +142,7 @@ export const DashboardShell: React.FC<{ children: ReactNode }> = ({
                     </Disclosure.Button>
                   ))}
                 </div>
-                <div className="border-t border-blue-700 pt-4 pb-3">
+                <div className="border-t border-blue-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
                       <img

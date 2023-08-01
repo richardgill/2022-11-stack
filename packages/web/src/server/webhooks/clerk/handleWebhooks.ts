@@ -1,4 +1,4 @@
-import { User } from '@prisma/client'
+import { type User } from '@prisma/client'
 import { prisma } from '~/server/utils/prisma'
 
 const dataToUser = (data: any): User => {

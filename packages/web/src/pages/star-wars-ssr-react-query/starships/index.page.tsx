@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import { last } from 'lodash-es'
 import React from 'react'
 import {
-  Starship,
-  StarshipResponse,
+  type Starship,
+  type StarshipResponse,
 } from '~/pages/star-wars-ssr/starships/types'
 
 const delay = async (time: number) =>

@@ -21,5 +21,4 @@ function usePageContext() {
   return pageContext
 }
 
-export { PageContextProvider }
-export { usePageContext }
+export { PageContextProvider, usePageContext }

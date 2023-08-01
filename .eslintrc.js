@@ -22,6 +22,9 @@ module.exports = {
     '@typescript-eslint/promise-function-async': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
+    '@typescript-eslint/no-confusing-void-expression': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
   },
   settings: {
     react: {

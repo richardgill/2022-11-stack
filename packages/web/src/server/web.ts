@@ -1,10 +1,10 @@
-import { ClerkExpressWithAuth, LooseAuthProp } from '@clerk/clerk-sdk-node'
+import { ClerkExpressWithAuth, type LooseAuthProp } from '@clerk/clerk-sdk-node'
 import compression from 'compression'
-import { Express, Request } from 'express'
+import { type Express, type Request } from 'express'
 import { pick } from 'lodash'
 import path from 'path'
-import { renderPage } from 'vite-plugin-ssr'
-import { PageContextInit } from '~/renderer/types'
+import { renderPage } from 'vite-plugin-ssr/server'
+import { type PageContextInit } from '~/renderer/types'
 const isProduction = process.env.NODE_ENV === 'production'
 const root = path.join(__dirname, '..', '..')
 
@@ -30,8 +30,9 @@ export const configureWeb = async (app: Express) => {
 
   app.get(
     '*',
-    // @ts-expect-error
     ClerkExpressWithAuth(),
+    // @ts-expect-error
+    // todo remove
     async (req: WithAuthProp<Request>, res, next) => {
       const auth = {
         ...pick(req.auth, 'sessionId', 'userId', 'actor', 'claims'),

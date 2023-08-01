@@ -1,7 +1,7 @@
 import { ClerkProvider, useAuth, useSession } from '@clerk/clerk-react'
 import { useEffect } from 'react'
 import { navigate } from 'vite-plugin-ssr/client/router'
-import { PageContext } from '~/renderer/types'
+import { type PageContext } from '~/renderer/types'
 import { doesRequireAdmin, doesRequireAuth } from '~/utils/auth'
 
 const Redirect: React.FC<{ to: string }> = ({ to }) => {

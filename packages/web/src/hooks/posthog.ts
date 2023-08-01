@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-restricted-imports
-import posthog, { Properties } from 'posthog-js'
+import posthog, { type Properties } from 'posthog-js'
 import { usePageContext } from '~/renderer/usePageContext'
+import { type AnalyticsEvent } from '../utils/analyticsEvents'
 import { getQueryParameters } from '../utils/routing'
-import { AnalyticsEvent } from '../utils/analyticsEvents'
 
 const posthogKey = import.meta.env.VITE_POSTHOG_PUBLIC_KEY
 

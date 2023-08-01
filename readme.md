@@ -3,6 +3,7 @@
 - Use `fnm` to manage node versions
 - Install `pnpm` as package manager
 - Run `fnm use && pnpm install` to get setup
+- Generate prisma client: `pnx run web:prisma-generate`
 - Then run one of:
   - `pnpm exec nx run web:dev`
   - `pnpm exec nx run desktop:dev`
