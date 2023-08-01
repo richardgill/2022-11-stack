@@ -37,6 +37,11 @@ async function render(originalPageContext: PageContextClient) {
   document.title = getPageTitle(originalPageContext)
 }
 
+// Whether your UI framework allows the hydration to be aborted. (Allowing vite-plugin-ssr
+// to abort the hydration if the user clicks on a link before the hydration finished.)
+// React users should set hydrationCanBeAborted to true. (Other frameworks,
+// such as Vue, crash if the hydration is aborted.)
+export const hydrationCanBeAborted = true
 // https://vite-plugin-ssr.com/clientRouting
 export const clientRouting = true
 export { render }

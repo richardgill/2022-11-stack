@@ -1,15 +1,15 @@
-import { parseUrl } from 'query-string'
+import qs from 'query-string'
 
 export const getQueryParameters = () => {
-  return parseUrl(window.location.href).query
+  return qs.parseUrl(window.location.href).query
 }
 
 export const getQueryParameter = (queryParam: string) => {
-  return parseUrl(window.location.href).query[queryParam]
+  return qs.parseUrl(window.location.href).query[queryParam]
 }
 
 export const getQueryParameterString = (queryParam: string) => {
-  return parseUrl(window.location.href).query[queryParam]?.toString()
+  return qs.parseUrl(window.location.href).query[queryParam]?.toString()
 }
 
 export const pageIdToRoute = (pageId: string) =>

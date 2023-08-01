@@ -30,8 +30,9 @@ export const configureWeb = async (app: Express) => {
 
   app.get(
     '*',
-    // @ts-expect-error
     ClerkExpressWithAuth(),
+    // @ts-expect-error
+    // todo remove
     async (req: WithAuthProp<Request>, res, next) => {
       const auth = {
         ...pick(req.auth, 'sessionId', 'userId', 'actor', 'claims'),
