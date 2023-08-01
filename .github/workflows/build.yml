@@ -40,7 +40,7 @@ jobs:
         run: pnpm install
 
       - name: Run root CI
-        run: pnpm ci
+        run: pnpm run ci
 
       - name: Run web CI
         run: pnpm exec nx run web:ci
