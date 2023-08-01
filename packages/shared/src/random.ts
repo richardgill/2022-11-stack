@@ -1,3 +1,3 @@
-import { random } from 'lodash'
+import { random } from 'lodash-es'
 
 export const rando = () => random()

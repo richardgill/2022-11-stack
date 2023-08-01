@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "imports": {
     "~/*": "./*.ts"
   },
@@ -16,6 +17,7 @@
     "@clerk/clerk-sdk-node": "^4.12.1",
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
+    "@mdx-js/rollup": "^2.3.0",
     "@prisma/client": "^5.1.0",
     "@tailwindcss/forms": "^0.5.4",
     "@tanstack/react-query": "^4.32.1",
@@ -31,7 +33,6 @@
     "focus-visible": "^5.2.0",
     "http-proxy-middleware": "^2.0.6",
     "jsonwebtoken": "^9.0.1",
-    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "mixpanel-browser": "^2.47.0",
     "postcss-focus-visible": "^9.0.0",

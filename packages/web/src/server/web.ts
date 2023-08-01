@@ -1,12 +1,15 @@
 import { ClerkExpressWithAuth, type LooseAuthProp } from '@clerk/clerk-sdk-node'
 import compression from 'compression'
 import { type Express, type Request } from 'express'
-import { pick } from 'lodash'
+import { pick } from 'lodash-es'
 import path from 'path'
+import * as url from 'url'
 import { renderPage } from 'vite-plugin-ssr/server'
 import { type PageContextInit } from '~/renderer/types'
+
 const isProduction = process.env.NODE_ENV === 'production'
-const root = path.join(__dirname, '..', '..')
+const dirname = url.fileURLToPath(new URL('.', import.meta.url))
+const root = path.join(dirname, '..', '..')
 
 interface CustomClaims {
   isAdmin?: boolean | string
@@ -15,10 +18,10 @@ type WithAuthProp<T> = T & { auth: LooseAuthProp['auth'] & CustomClaims }
 export const configureWeb = async (app: Express) => {
   app.use(compression())
   if (isProduction) {
-    const sirv = require('sirv')
+    const sirv = (await import('sirv')).default
     app.use(sirv(`${root}/dist/client`))
   } else {
-    const vite = require('vite')
+    const vite = await import('vite')
     const viteDevMiddleware = (
       await vite.createServer({
         root,

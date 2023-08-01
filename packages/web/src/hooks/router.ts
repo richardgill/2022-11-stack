@@ -1,4 +1,4 @@
-import { pick } from 'lodash'
+import { pick } from 'lodash-es'
 import { usePageContext } from '~/renderer/usePageContext'
 
 export const useRouter = () => {
