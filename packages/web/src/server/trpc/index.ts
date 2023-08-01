@@ -1,5 +1,5 @@
 import { clerkClient } from '@clerk/clerk-sdk-node'
-import { TRPCError, initTRPC, type inferAsyncReturnType } from '@trpc/server'
+import { initTRPC, TRPCError, type inferAsyncReturnType } from '@trpc/server'
 import * as trpcExpress from '@trpc/server/adapters/express'
 import { type Express } from 'express'
 import superjson from 'superjson'
