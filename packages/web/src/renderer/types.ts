@@ -1,7 +1,8 @@
 import { LooseAuthProp } from '@clerk/clerk-sdk-node'
-import type { PageContextBuiltIn } from 'vite-plugin-ssr'
-import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client'
-
+import type {
+  PageContextBuiltIn,
+  PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient,
+} from 'vite-plugin-ssr/types'
 type Page = (pageProps: PageProps) => React.ReactElement
 interface PageProps {}
 

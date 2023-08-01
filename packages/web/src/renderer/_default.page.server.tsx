@@ -1,5 +1,5 @@
 import ReactDOMServer from 'react-dom/server'
-import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr'
+import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server'
 import { RootShell } from '~/components/layouts/rootLayout'
 import { doesRequireAdmin, doesRequireAuth } from '~/utils/auth'
 import { getPageTitle } from '~/utils/pageTitle'
