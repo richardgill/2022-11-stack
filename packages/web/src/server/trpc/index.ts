@@ -1,5 +1,5 @@
 import { clerkClient } from '@clerk/clerk-sdk-node'
-import { type inferAsyncReturnType, initTRPC, TRPCError } from '@trpc/server'
+import { TRPCError, initTRPC, type inferAsyncReturnType } from '@trpc/server'
 import * as trpcExpress from '@trpc/server/adapters/express'
 import { type Express } from 'express'
 import superjson from 'superjson'
@@ -7,7 +7,7 @@ import { z } from 'zod'
 import { prisma } from '~/server/utils/prisma'
 import { stripe } from '~/server/utils/stripe'
 import { baseUrl } from '~/utils/environmentVariables'
-import { type Auth, verifyToken } from './jwt'
+import { verifyToken, type Auth } from './jwt'
 // created for each request
 const createContext = ({ req }: trpcExpress.CreateExpressContextOptions) => {
   return {
