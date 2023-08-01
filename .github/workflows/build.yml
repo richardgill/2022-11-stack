@@ -19,7 +19,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
 
       - name: Get pnpm store directory
@@ -47,6 +47,3 @@ jobs:
 
       - name: Run desktop CI
         run: pnpm exec nx run desktop:build
-
-
-
