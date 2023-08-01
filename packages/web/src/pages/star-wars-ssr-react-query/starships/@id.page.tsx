@@ -1,10 +1,10 @@
 import { last } from 'lodash-es'
 import React from 'react'
 import {
-  Starship,
-  StarshipResponse,
+  type Starship,
+  type StarshipResponse,
 } from '~/pages/star-wars-ssr/starships/types'
-import { PageContext } from '~/renderer/types'
+import { type PageContext } from '~/renderer/types'
 
 const delay = async (time: number) =>
   await new Promise((resolve) => setTimeout(resolve, time))

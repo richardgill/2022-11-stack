@@ -1,4 +1,4 @@
-import Stripe from 'stripe'
+import type Stripe from 'stripe'
 import { prisma } from '~/server/utils/prisma'
 
 const subscriptionToDb = (subscription: Stripe.Subscription) => {

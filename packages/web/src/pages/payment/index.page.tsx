@@ -11,10 +11,7 @@ export const Page = () => {
       },
     })
   useEffect(() => {
-    const run = async () => {
-      await createCheckoutSession()
-    }
-    run().catch(console.error)
+    createCheckoutSession()
   }, [])
 }
 

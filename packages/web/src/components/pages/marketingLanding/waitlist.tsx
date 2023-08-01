@@ -31,7 +31,7 @@ export const Waitlist = () => {
             onSubmit={async (event) => {
               // @ts-expect-error
               const email = event.target.email.value
-              await joinWaitlist(email)
+              joinWaitlist(email)
             }}
           >
             <>

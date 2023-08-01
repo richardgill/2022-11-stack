@@ -1,5 +1,5 @@
-import express, { Express } from 'express'
-import Stripe from 'stripe'
+import express, { type Express } from 'express'
+import type Stripe from 'stripe'
 import { stripe } from '~/server/utils/stripe'
 import { handleWebhooks } from './handleWebhooks'
 

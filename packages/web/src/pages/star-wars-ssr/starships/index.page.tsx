@@ -1,6 +1,6 @@
 import { last } from 'lodash-es'
 import React from 'react'
-import { Starship, StarshipResponse } from './types'
+import { type Starship, type StarshipResponse } from './types'
 
 const delay = async (time: number) =>
   await new Promise((resolve) => setTimeout(resolve, time))
