@@ -8,7 +8,7 @@
 // ├─┬ dist
 // │ └── index.html    > Electron-Renderer
 //
-import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import { BrowserWindow, app, ipcMain, shell } from 'electron'
 import { release } from 'os'
 import { join } from 'path'
 

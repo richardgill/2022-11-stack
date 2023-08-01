@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-restricted-imports
-import mixpanelBrowser, { Dict } from 'mixpanel-browser'
+import mixpanelBrowser, { type Dict } from 'mixpanel-browser'
 import { usePageContext } from '~/renderer/usePageContext'
+import { type AnalyticsEvent } from '../utils/analyticsEvents'
 import { getQueryParameters } from '../utils/routing'
-import { AnalyticsEvent } from '../utils/analyticsEvents'
 
 const mixpanelKey = import.meta.env.VITE_MIXPANEL_PUBLIC_KEY
 

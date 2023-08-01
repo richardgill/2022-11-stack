@@ -1,7 +1,7 @@
-import { createRoot, hydrateRoot, Root } from 'react-dom/client'
+import { createRoot, hydrateRoot, type Root } from 'react-dom/client'
 import { RootShell } from '~/components/layouts/rootLayout'
-import { getPageTitle } from '../utils/pageTitle'
 import { pageIdToRoute } from '~/utils/routing'
+import { getPageTitle } from '../utils/pageTitle'
 import type { PageContextClient } from './types'
 
 let root: Root

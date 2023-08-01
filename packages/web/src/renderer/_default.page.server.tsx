@@ -2,10 +2,10 @@ import ReactDOMServer from 'react-dom/server'
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr/server'
 import { RootShell } from '~/components/layouts/rootLayout'
 import { doesRequireAdmin, doesRequireAuth } from '~/utils/auth'
+import { baseUrl } from '~/utils/environmentVariables'
 import { getPageTitle } from '~/utils/pageTitle'
 import { pageIdToRoute } from '~/utils/routing'
 import type { PageContext, PageContextServer } from './types'
-import { baseUrl } from '~/utils/environmentVariables'
 
 // See https://vite-plugin-ssr.com/data-fetching
 export const passToClient = [

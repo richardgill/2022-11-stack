@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import styles from './styles/app.module.scss'
 import { isEven } from 'shared/src/isEven'
 import { rando } from 'shared/src/random'
+import styles from './styles/app.module.scss'
 
 const App: React.FC = () => {
   const [count, setCount] = useState(0)

@@ -1,10 +1,10 @@
-import { Fragment, ReactNode } from 'react'
+import { useUser } from '@clerk/clerk-react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline/index'
 import clsx from 'clsx'
-import { useUser } from '@clerk/clerk-react'
-import { MarkInverted } from '~/components/logos'
+import { Fragment, type ReactNode } from 'react'
 import { Link } from '~/components/link'
+import { MarkInverted } from '~/components/logos'
 
 const navigation = [
   { name: 'Insights', href: '/' },

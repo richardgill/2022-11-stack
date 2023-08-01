@@ -1,5 +1,5 @@
-import { MarketingLanding } from '~/components/pages/marketingLanding'
 import { Home } from '~/components/pages/home'
+import { MarketingLanding } from '~/components/pages/marketingLanding'
 import { useAuth } from '~/hooks/auth'
 
 export const Page = () => {

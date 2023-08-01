@@ -1,9 +1,9 @@
 import { useUser } from '@clerk/clerk-react'
 import { useEffect } from 'react'
-import { usePageContext } from '~/renderer/usePageContext'
+import { useAuth } from '~/hooks/auth'
 import { useMixpanel } from '~/hooks/mixpanel'
 import { usePosthog } from '~/hooks/posthog'
-import { useAuth } from '~/hooks/auth'
+import { usePageContext } from '~/renderer/usePageContext'
 
 export const Analytics: React.FC = () => {
   const auth = useAuth()

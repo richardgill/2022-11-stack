@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { Link } from '~/components/link'
 
 export const NavLink: React.FC<{ href: string; children: ReactNode }> = ({

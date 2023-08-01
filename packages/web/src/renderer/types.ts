@@ -1,4 +1,4 @@
-import { LooseAuthProp } from '@clerk/clerk-sdk-node'
+import { type LooseAuthProp } from '@clerk/clerk-sdk-node'
 import type {
   PageContextBuiltIn,
   PageContextBuiltInClientWithServerRouting as PageContextBuiltInClient,
@@ -40,7 +40,4 @@ type PageContextClient = PageContextBuiltInClient<Page> & PageContextCustom
 
 type PageContext = PageContextClient | PageContextServer
 
-export type { PageContextServer }
-export type { PageContextClient }
-export type { PageContext }
-export type { PageProps } // When using Server Routing
+export type { PageContext, PageContextClient, PageContextServer, PageProps }

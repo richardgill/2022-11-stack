@@ -1,10 +1,10 @@
-import { ClerkExpressWithAuth, LooseAuthProp } from '@clerk/clerk-sdk-node'
+import { ClerkExpressWithAuth, type LooseAuthProp } from '@clerk/clerk-sdk-node'
 import compression from 'compression'
-import { Express, Request } from 'express'
+import { type Express, type Request } from 'express'
 import { pick } from 'lodash'
 import path from 'path'
 import { renderPage } from 'vite-plugin-ssr/server'
-import { PageContextInit } from '~/renderer/types'
+import { type PageContextInit } from '~/renderer/types'
 const isProduction = process.env.NODE_ENV === 'production'
 const root = path.join(__dirname, '..', '..')
 

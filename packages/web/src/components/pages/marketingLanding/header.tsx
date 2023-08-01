@@ -1,7 +1,7 @@
-import { Fragment, ReactNode } from 'react'
-import { Link } from '~/components/link'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
+import { Fragment, type ReactNode } from 'react'
+import { Link } from '~/components/link'
 
 import { LinkButton } from '~/components/button'
 import { Container } from '~/components/container'

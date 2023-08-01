@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
+import { useEffect, useState } from 'react'
 
 import { Container } from '~/components/container'
 import backgroundImage from '~/images/background-features.jpg'
