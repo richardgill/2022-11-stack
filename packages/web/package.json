@@ -5,10 +5,10 @@
   "scripts": {
     "build": "vite build && pnpm prisma-generate",
     "ci": "pnpm prisma-generate && tsc --noEmit && sort-package-json package.json --check && pnpm test",
-    "dev": "ts-node-dev -r tsconfig-paths/register ./src/server/index.ts",
+    "dev": "tsx ./src/server/index.ts",
     "prisma-generate": "prisma generate",
     "prisma-pull": "prisma db pull",
-    "server-prod": "cross-env NODE_ENV=production ts-node ./src/server",
+    "server-prod": "cross-env NODE_ENV=production tsx ./src/server",
     "test": "jest"
   },
   "dependencies": {
@@ -47,8 +47,9 @@
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.3",
     "ts-node": "^10.9.1",
+    "tsx": "^3.12.7",
     "typescript": "5.1.6",
-    "vite": "^3.2.2",
+    "vite": "^4.0.3",
     "vite-plugin-ssr": "^0.4.133",
     "zod": "^3.21.4"
   },
@@ -70,8 +71,6 @@
     "jest-environment-jsdom": "^29.6.2",
     "postcss": "^8.4.27",
     "prisma": "^5.1.0",
-    "ts-jest": "^29.1.1",
-    "ts-node-dev": "^2.0.0",
-    "tsconfig-paths": "^4.2.0"
+    "ts-jest": "^29.1.1"
   }
 }
