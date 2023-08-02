@@ -4,3 +4,4 @@ export const Page = () => {
 
 export const documentProps = { title: 'Blog posts' }
 export const requiresAdmin = false
+export const requiresAuth = false
